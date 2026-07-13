@@ -15,7 +15,7 @@
  * new shell instead of a stale cached one.
  */
 
-const CACHE_VERSION = "zenza-fid-shell-v2";
+const CACHE_VERSION = "zenza-fid-shell-v3";
 
 const SHELL_ASSETS = [
   "/login.html",
