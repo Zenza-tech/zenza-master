@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza FID — Console</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0A1420">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Zenza FID">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><img src="icons/zenzatech-icon-transparent-teal.svg" alt="" style="height:16px; width:16px;">ZENZA FID</div>
+  <div class="topbar-right">
+    <button class="btn btn-ghost" id="installBtn" style="display:none; padding:8px 14px; font-size:12.5px;">⤓ Install App</button>
+    <div class="theme-toggle">
+      <button data-mode="light">Light</button>
+      <button data-mode="dark">Dark</button>
+      <button data-mode="system">Auto</button>
+    </div>
+    <div class="user-chip" id="userChip">…</div>
+    <button class="logout-btn" id="logoutBtn">Sign Out</button>
+  </div>
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav id="sidebarNav">
+      <a href="#/dashboard" data-view="dashboard">Dashboard</a>
+      <a href="#/repository" data-view="repository">Repository</a>
+      <a href="#/watchlist" data-view="watchlist">Watchlist</a>
+      <div class="sep" id="adminSep" style="display:none;">Admin</div>
+      <a href="#/audit" data-view="audit" id="navAudit" style="display:none;">Audit Log</a>
+      <a href="#/users" data-view="users" id="navUsers" style="display:none;">Users</a>
+    </nav>
+  </aside>
+
+  <main class="main" id="mainContent">
+    <!-- views render here -->
+  </main>
+</div>
+
+<!-- modal host -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/site.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza Technology — Careers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:64svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 750px 520px at 85% 8%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; padding:40px 0; }
+  .hero h1{ font-size:clamp(28px,4.4vw,48px); line-height:1.16; max-width:760px; margin-bottom:18px; }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17px); color:var(--text-dim); max-width:580px; }
+
+  .route-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:20px; }
+  @media (max-width:860px){ .route-grid{ grid-template-columns:1fr; } }
+  .route-card{ background:var(--bg); padding:30px 28px; text-decoration:none; color:inherit; transition:background .2s; }
+  .route-card:hover{ background:var(--panel); }
+  .route-card .rk{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:12px; }
+  .route-card h3{ font-size:19px; margin-bottom:8px; }
+  .route-card p{ font-size:13.5px; color:var(--text-dim); margin-bottom:16px; }
+  .route-card .go{ font-family:'IBM Plex Mono'; font-size:12px; }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:18px; width:18px;"> ZENZATECH</a>
+    <div class="navlinks">
+      <a href="index.html#story">About</a>
+      <a href="index.html#products">Products</a>
+      <a href="careers.html" class="active">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="https://zenzainc.com" style="padding:8px 14px; font-size:12.5px;">Zenza Inc. ↗</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="eyebrow">Careers at Zenza Technology</div>
+    <h1>One company. Two products. Different roles need different homes.</h1>
+    <p class="sub">Some roles support Zenza Technology as a whole — the people and functions every product depends on. Others belong to one product's specific problem space. Start here, then go to the right place.</p>
+  </div>
+</header>
+
+<section id="company-roles">
+  <div class="wrap">
+    <div class="eyebrow">Company-Wide Roles</div>
+    <div class="sec-head">
+      <h2>Roles that support every Zenza Technology product.</h2>
+      <p>Leadership, shared platform, and company function roles — not tied to one product's specific domain.</p>
+    </div>
+    <div class="row-index">
+      <div class="row-item"><div><h4>CTO / Head of Engineering</h4><p>Technical leadership across the company's product portfolio, architecture standards, and hiring for engineering as a whole.</p></div><div class="row-meta"><span class="tag c-teal">Founding</span></div></div>
+      <div class="row-item"><div><h4>Head of Design</h4><p>Owns the shared design system used across every Zenza Technology product and site — the thread that keeps FID, ZenVest, and whatever comes next feeling like one company.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+      <div class="row-item"><div><h4>Finance & Operations Lead</h4><p>Company-wide budgeting, payroll, and investor reporting across all products.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+      <div class="row-item"><div><h4>People & Talent Lead</h4><p>Hiring infrastructure and culture across every product team — the person who makes this careers page actually work.</p></div><div class="row-meta"><span class="tag c-teal">Month 3–4</span></div></div>
+      <div class="row-item"><div><h4>General Counsel (fractional)</h4><p>Company-level legal, contracts, and IP — product-specific regulatory counsel (fraud, lending, capital markets) sits with each product team.</p></div><div class="row-meta"><span class="tag c-slate">Advisor</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="product-roles">
+  <div class="wrap">
+    <div class="eyebrow">Product-Specific Roles</div>
+    <div class="sec-head">
+      <h2>Each product needs different expertise.</h2>
+      <p>Fraud intelligence and a credit-investment platform draw on almost entirely different skill sets — pick the one that matches yours.</p>
+    </div>
+    <div class="route-grid">
+      <a class="route-card" href="fid-careers.html">
+        <div class="rk" style="color:var(--teal-ink);">Zenza FID</div>
+        <h3>Security, risk & fraud engineering roles</h3>
+        <p>Backend engineers, security-minded DevOps, fraud domain experts, and compliance roles built around banking and financial-crime regulation.</p>
+        <span class="go">See open roles at Zenza FID →</span>
+      </a>
+      <a class="route-card brand-zenvest" href="zenvest-careers.html">
+        <div class="rk" style="color:var(--teal-ink);">ZenVest</div>
+        <h3>Credit, investment & fintech roles</h3>
+        <p>Credit risk modelers, capital markets specialists, real estate structuring expertise, and partnerships roles built for a multi-regulatory product.</p>
+        <span class="go">See open roles at ZenVest →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="comp" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="eyebrow">How We Pay</div>
+    <div class="callout">
+      <h3 style="font-size:19px; margin-bottom:12px;">Every product at Zenza Technology is early-stage, and every offer reflects that honestly.</h3>
+      <p style="font-size:14px; color:var(--text);">Cash compensation is modest at this stage across the company — closer to a stipend than a market-rate salary for most roles — paired with meaningful equity and real ownership of what you build. This applies whether you're joining a company-wide function or a specific product team; each product's careers page has more detail on what that looks like there.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:15px; width:15px;"> ZENZATECH</a>
+    <div class="flinks">
+      <a href="index.html">Home</a>
+      <a href="https://zenzainc.com">Zenza Inc.</a>
+      <a href="mailto:careers@zenzatech.com">Careers Email</a>
+    </div>
+    <div class="fnote">© 2026 ZENZA TECHNOLOGY — a Zenza Inc. company</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

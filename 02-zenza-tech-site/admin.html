@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza FID — Submissions (Local Admin)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1420; --ink-2:#0F1D2E; --panel:#122436;
+    --line:rgba(226,232,240,0.10); --line-strong:rgba(226,232,240,0.18);
+    --text:#DCE3EA; --text-dim:#8B96A8;
+    --teal:#16B8A6; --amber:#E0A930; --red:#C9503A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--ink); color:var(--text); font-family:'IBM Plex Sans', sans-serif; padding:40px 32px 100px; }
+  h1{ font-family:'Space Grotesk'; font-size:26px; color:#fff; margin-bottom:6px; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .warn{
+    border:1px solid rgba(224,169,48,0.4); background:rgba(224,169,48,0.06); color:#F0D9A8;
+    padding:14px 18px; border-radius:2px; font-size:13.5px; margin:20px 0 30px; max-width:820px;
+  }
+  .toolbar{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:24px; }
+  .toolbar select, .toolbar input{
+    background:var(--panel); border:1px solid var(--line-strong); color:var(--text);
+    padding:9px 12px; border-radius:2px; font-family:'IBM Plex Sans'; font-size:13.5px;
+  }
+  .stat-row{ display:flex; gap:24px; margin-bottom:26px; flex-wrap:wrap; }
+  .stat{ font-family:'IBM Plex Mono'; }
+  .stat .n{ font-size:22px; color:var(--teal); display:block; }
+  .stat .l{ font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  thead th{
+    text-align:left; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--text-dim); padding:10px 12px; border-bottom:1px solid var(--line-strong); white-space:nowrap;
+  }
+  tbody td{ padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:hover{ background:var(--panel); }
+  .tag{ font-family:'IBM Plex Mono'; font-size:10.5px; text-transform:uppercase; padding:3px 8px; border-radius:2px; border:1px solid var(--line-strong); white-space:nowrap; }
+  .tag.welcome_contact{ color:var(--teal); border-color:rgba(22,184,166,0.4); }
+  .tag.career_interest{ color:var(--amber); border-color:rgba(224,169,48,0.4); }
+  .tag.investor_cta{ color:var(--red); border-color:rgba(201,80,58,0.4); }
+  .tag.zenvest_contact{ color:#D4A73E; border-color:rgba(212,167,62,0.4); }
+  .tag.zenvest_career_interest{ color:#2E9E6B; border-color:rgba(46,158,107,0.4); }
+  .empty{ color:var(--text-dim); font-size:14px; padding:40px 0; }
+  .msg-cell{ max-width:320px; white-space:pre-wrap; color:#C6CFDA; }
+  .refresh{ background:var(--teal); color:var(--ink); border:none; padding:9px 16px; border-radius:2px; font-family:'IBM Plex Mono'; font-size:12.5px; cursor:pointer; }
+</style>
+</head>
+<body>
+  <h1>Zenza FID — Submissions</h1>
+  <p class="mono" style="color:var(--text-dim); font-size:12.5px;">Local admin view · reads directly from data/submissions.json</p>
+
+  <div class="warn">
+    ⚠ This page has no login and no access control. It's meant for local development only —
+    do not deploy this file publicly as-is. See README.md → "Before You Host This Live" for how to lock it down.
+  </div>
+
+  <div class="stat-row" id="statRow"></div>
+
+  <div class="toolbar">
+    <select id="filterPage">
+      <option value="">All pages</option>
+      <option value="fid-welcome">Zenza FID — About</option>
+      <option value="fid-investors">Zenza FID — Investors</option>
+      <option value="fid-careers">Zenza FID — Careers</option>
+      <option value="zenvest-welcome">ZenVest — About</option>
+      <option value="zenvest-investors">ZenVest — Investors</option>
+      <option value="zenvest-careers">ZenVest — Careers</option>
+    </select>
+    <select id="filterType">
+      <option value="">All types</option>
+      <option value="welcome_contact">Zenza FID — Question/Recommendation</option>
+      <option value="career_interest">Zenza FID — Show Interest</option>
+      <option value="investor_cta">Zenza FID — Investor CTA Click</option>
+      <option value="zenvest_contact">ZenVest — Question/Recommendation</option>
+      <option value="zenvest_career_interest">ZenVest — Show Interest</option>
+    </select>
+    <input type="text" id="search" placeholder="Search name, email, message…">
+    <button class="refresh" onclick="load()">Refresh</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Received</th>
+        <th>Type</th>
+        <th>Page</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Detail</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <div class="empty" id="emptyMsg" style="display:none;">No submissions yet — they'll show up here as soon as someone uses a form on the site.</div>
+
+<script>
+  let allRows = [];
+
+  async function load(){
+    try{
+      const [subsRes, statsRes] = await Promise.all([
+        fetch('/api/submissions'),
+        fetch('/api/stats')
+      ]);
+      allRows = await subsRes.json();
+      const stats = await statsRes.json();
+      renderStats(stats);
+      render();
+    }catch(err){
+      document.getElementById('rows').innerHTML = '';
+      document.getElementById('emptyMsg').style.display = 'block';
+      document.getElementById('emptyMsg').textContent = 'Could not reach the local server. Make sure it is running: node server.js';
+    }
+  }
+
+  function renderStats(stats){
+    const el = document.getElementById('statRow');
+    el.innerHTML = `
+      <div class="stat"><span class="n">${stats.total}</span><span class="l">Total Submissions</span></div>
+      ${Object.entries(stats.byType).map(([k,v]) => `<div class="stat"><span class="n">${v}</span><span class="l">${k.replace('_',' ')}</span></div>`).join('')}
+    `;
+  }
+
+  function render(){
+    const pageF = document.getElementById('filterPage').value;
+    const typeF = document.getElementById('filterType').value;
+    const q = document.getElementById('search').value.toLowerCase();
+
+    const filtered = allRows.filter(r => {
+      if (pageF && r.page !== pageF) return false;
+      if (typeF && r.formType !== typeF) return false;
+      if (q){
+        const hay = `${r.name||''} ${r.email||''} ${r.message||''}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    const tbody = document.getElementById('rows');
+    const emptyMsg = document.getElementById('emptyMsg');
+    if (filtered.length === 0){
+      tbody.innerHTML = '';
+      emptyMsg.style.display = 'block';
+      emptyMsg.textContent = 'No matching submissions.';
+      return;
+    }
+    emptyMsg.style.display = 'none';
+
+    tbody.innerHTML = filtered.map(r => `
+      <tr>
+        <td class="mono" style="color:var(--text-dim); white-space:nowrap;">${new Date(r.receivedAt).toLocaleString()}</td>
+        <td><span class="tag ${r.formType}">${(r.formType||'').replace('_',' ')}</span></td>
+        <td class="mono">${r.page || ''}</td>
+        <td>${escapeHtml(r.name || '—')}</td>
+        <td class="mono">${escapeHtml(r.email || '—')}</td>
+        <td>${escapeHtml(r.role || r.type || r.action || '—')}</td>
+        <td class="msg-cell">${escapeHtml(r.message || '')}</td>
+      </tr>
+    `).join('');
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  document.getElementById('filterPage').addEventListener('change', render);
+  document.getElementById('filterType').addEventListener('change', render);
+  document.getElementById('search').addEventListener('input', render);
+
+  load();
+</script>
+</body>
+</html>

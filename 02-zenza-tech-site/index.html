@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza Technology — Innovate to Solve Problems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .home-hero{ min-height:88svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .home-hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 700px 500px at 80% 12%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%),
+                radial-gradient(ellipse 600px 450px at 12% 88%, color-mix(in srgb, var(--amber) 10%, transparent), transparent 60%); }
+  .home-content{ position:relative; z-index:2; }
+  .home-content h1{ font-size:clamp(30px,4.8vw,52px); line-height:1.14; max-width:760px; margin-bottom:20px; }
+  .home-content h1 em{ font-style:normal; color:var(--teal-ink); }
+  .home-content p.sub{ font-size:clamp(15px,1.5vw,17.5px); color:var(--text-dim); max-width:600px; margin-bottom:32px; }
+
+  .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:860px){ .product-grid{ grid-template-columns:1fr; } }
+  .product-card{ background:var(--bg); padding:36px 32px; display:flex; flex-direction:column; }
+  .product-card .status{ font-family:'IBM Plex Mono'; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; padding:5px 10px; border-radius:12px; display:inline-block; margin-bottom:18px; width:fit-content; }
+  .product-card .status.live{ background:color-mix(in srgb, var(--teal) 18%, transparent); color:var(--teal-ink); }
+  .product-card .status.dev{ background:color-mix(in srgb, var(--amber) 20%, transparent); color:var(--amber-ink); }
+  .product-card h3{ font-size:24px; margin-bottom:6px; }
+  .product-card .tagline{ font-family:'IBM Plex Mono'; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:16px; }
+  .product-card p.desc{ font-size:14.5px; color:var(--text); margin-bottom:22px; flex-grow:1; }
+  .product-card .plinks{ display:flex; gap:10px; flex-wrap:wrap; }
+  .product-card .plinks a{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--text-dim); text-decoration:none; border:1px solid var(--line-strong); padding:7px 12px; border-radius:var(--radius); transition:all .2s; }
+  .product-card .plinks a:hover{ border-color:var(--teal); color:var(--teal-ink); }
+  .product-card .plinks a.primary{ background:var(--teal); color:var(--btn-ink); border-color:var(--teal); font-weight:600; }
+  .product-card .plinks a.primary:hover{ opacity:0.85; }
+
+  .story-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  @media (max-width:860px){ .story-grid{ grid-template-columns:1fr; } }
+  .prose p{ font-size:15.5px; color:var(--text); margin-bottom:15px; }
+  .pull{ font-family:'Space Grotesk'; font-size:20px; line-height:1.45; border-left:2px solid var(--teal); padding-left:22px; color:var(--heading); }
+
+  .careers-band{ text-align:center; padding:90px 0; border-bottom:1px solid var(--line); }
+  .careers-band h2{ font-size:clamp(24px,3.6vw,36px); max-width:600px; margin:0 auto 16px; }
+  .careers-band p{ color:var(--text-dim); max-width:520px; margin:0 auto 30px; font-size:15px; }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:20px; width:20px;"> ZENZATECH</a>
+    <div class="navlinks">
+      <a href="#story">About</a>
+      <a href="#products">Products</a>
+      <a href="careers.html">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="https://zenzainc.com" style="padding:8px 14px; font-size:12.5px;">Zenza Inc. ↗</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="home-hero">
+  <div class="glow"></div>
+  <div class="wrap home-content">
+    <img src="assets/zenzatech-logo-navy-teal.svg" alt="ZenzaTech — Innovate to Solve Problems" style="height:56px; width:auto; margin-bottom:14px;">
+    <p class="mono" style="font-size:11.5px; letter-spacing:0.12em; color:var(--teal-ink); text-transform:uppercase; margin-bottom:34px;">Innovate to Solve Problems</p>
+    <h1>The technology company under Zenza Inc. — <em>building the products.</em></h1>
+    <p class="sub">Zenza Technology builds software products for African markets — each one solving a genuinely different problem, each with its own team, story, and plan. Explore what we're building below, or see how it fits into the wider Zenza Inc. family.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#products">See Our Products</a>
+      <a class="btn btn-ghost" href="#story">Our Story</a>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="eyebrow">Our Story</div>
+    <div class="story-grid">
+      <div class="prose">
+        <p>Zenza Technology exists to build software that solves real problems for African markets — starting with two very different ones. Zenza FID gives banks and financial institutions a shared memory for fraud. ZenVest gives everyday people one place to access credit, build an investment portfolio, and move between the two.</p>
+        <p>Different problems, different users, different regulatory worlds — but the same underlying philosophy runs through both: don't replace the institutions that already do this well, sit alongside them, and make the whole experience smarter, safer, and easier to understand for the person actually using it.</p>
+      </div>
+      <div>
+        <div class="pull">"Innovate to Solve Problems."</div>
+        <p style="margin-top:20px; color:var(--text-dim); font-size:14px;">That's not just a tagline — it's the filter every product idea goes through before it becomes a Zenza Technology product. Each one gets its own team, its own hiring, its own plan, because each one requires genuinely different expertise — but every one of them ships under the same standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="eyebrow">Our Products</div>
+    <div class="sec-head">
+      <h2>Two products. Two problems. Two teams.</h2>
+      <p>Each product has its own story, its own investor case, and its own hiring — because building fraud intelligence for banks and building a credit-and-investment platform for everyday people need genuinely different people and plans.</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <span class="status live">Live · In Development</span>
+        <h3>Zenza FID</h3>
+        <div class="tagline">Fraud Intelligence Platform</div>
+        <p class="desc">A governed fraud-intelligence layer for African banks and financial institutions — a shared memory for fraud so what one institution learns protects every institution connected to it, without any customer's private data changing hands.</p>
+        <div class="plinks">
+          <a class="primary" href="fid-welcome.html">About Zenza FID</a>
+          <a href="fid-investors.html">Investors</a>
+          <a href="fid-careers.html">Careers</a>
+        </div>
+      </div>
+      <div class="product-card brand-zenvest" style="background:color-mix(in srgb, var(--teal) 4%, var(--bg));">
+        <span class="status dev">In Development</span>
+        <h3>ZenVest</h3>
+        <div class="tagline">Create Wealth Together</div>
+        <p class="desc">An open financial ecosystem giving everyday Nigerians one place to access credit, build an investment portfolio across real estate, ETFs, bonds and shares, and move between the two — with the financial literacy to make good decisions along the way.</p>
+        <div class="plinks">
+          <a class="primary" href="zenvest-welcome.html">About ZenVest</a>
+          <a href="zenvest-investors.html">Investors</a>
+          <a href="zenvest-careers.html">Careers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="careers-band">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center; display:flex;">Careers</div>
+    <h2>One company, two products, room for both kinds of builders.</h2>
+    <p>Some roles support Zenza Technology as a whole. Others are specific to one product's problem space. Start at the company level and we'll point you the right way.</p>
+    <a class="btn btn-primary" href="careers.html">See All Open Roles →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:15px; width:15px;"> ZENZATECH</a>
+    <div class="flinks">
+      <a href="https://zenzainc.com">Zenza Inc.</a>
+      <a href="careers.html">Careers</a>
+      <a href="mailto:hello@zenzatech.com">Contact</a>
+    </div>
+    <div class="fnote">© 2026 ZENZA TECHNOLOGY — a Zenza Inc. company</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

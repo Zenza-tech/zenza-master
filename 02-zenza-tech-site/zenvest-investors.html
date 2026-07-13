@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="zenvest">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZenVest — Investors & Business Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:88svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 800px 550px at 82% 8%, color-mix(in srgb, var(--teal) 16%, transparent), transparent 60%),
+                radial-gradient(ellipse 650px 480px at 6% 92%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; }
+  .stamp{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--amber-ink); border:1px solid color-mix(in srgb, var(--amber) 40%, transparent); padding:6px 12px; border-radius:var(--radius); background:color-mix(in srgb, var(--amber) 7%, transparent); margin-bottom:26px; }
+  .stamp::before{ content:"●"; font-size:8px; color:var(--amber); }
+  .hero h1{ font-size:clamp(30px,5vw,58px); line-height:1.08; max-width:860px; margin-bottom:20px; }
+  .hero h1 em{ font-style:normal; color:var(--teal-ink); }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17.5px); color:var(--text-dim); max-width:580px; margin-bottom:32px; }
+  .hero-foot{ position:relative; z-index:2; margin-top:52px; padding-top:20px; border-top:1px solid var(--line); display:flex; gap:34px; flex-wrap:wrap; }
+  .hero-foot .stat .num{ font-family:'IBM Plex Mono'; font-size:18px; color:var(--heading); display:block; }
+  .hero-foot .stat .lab{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+
+  .prose{ font-size:15.5px; color:var(--text); max-width:760px; }
+  .prose p{ margin-bottom:15px; }
+  .prose strong{ color:var(--heading); font-weight:600; }
+
+  .pillar-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:40px; }
+  @media (max-width:860px){ .pillar-grid{ grid-template-columns:1fr; } }
+  .pillar{ background:var(--bg); padding:26px 22px; }
+  .pillar .n{ font-family:'IBM Plex Mono'; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; display:block; }
+  .pillar h3{ font-size:18px; margin-bottom:8px; }
+  .pillar p{ font-size:13px; color:var(--text-dim); }
+
+  .rev-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .rev-card{ background:var(--bg); padding:20px 18px; }
+  .rev-card .amt{ font-family:'Space Grotesk'; font-size:14px; color:var(--teal-ink); margin-bottom:6px; }
+  .rev-card h5{ font-size:13.5px; margin-bottom:6px; }
+  .rev-card p{ font-size:11.5px; color:var(--text-dim); }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:18px; width:18px;"> ZENVEST</a>
+    <div class="navlinks">
+      <a href="zenvest-welcome.html">About</a>
+      <a href="#model">The Model</a>
+      <a href="#revenue">Revenue</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="zenvest-careers.html">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="index.html" style="padding:8px 14px; font-size:12.5px;">ZenzaTech ↗</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+      <a class="nav-cta" href="#contact">Start a Conversation</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="stamp">Business Model & Investor Briefing</div>
+    <h1>An open ecosystem, not a closed product — <em>and revenue from day one.</em></h1>
+    <p class="sub">ZenVest connects users to licensed credit, investment, and real estate partners under one platform, one AI risk profile, and one trusted experience — without ever becoming the licensed institution itself. A Zenza Technology product, built on the same orchestration-layer thesis proven by Zenza FID.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Request the Full Prospectus</a>
+      <a class="btn btn-ghost" href="#model">See the Model ↓</a>
+    </div>
+    <div class="hero-foot">
+      <div class="stat"><span class="num mono">3</span><span class="lab">Open partner categories</span></div>
+      <div class="stat"><span class="num mono">Day 1</span><span class="lab">Revenue-generating MVP</span></div>
+      <div class="stat"><span class="num mono">Open</span><span class="lab">Not exclusive to any single partner</span></div>
+      <div class="stat"><span class="num mono">NG → Africa</span><span class="lab">Market sequencing</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="opportunity">
+  <div class="wrap">
+    <div class="eyebrow">The Opportunity</div>
+    <div class="sec-head">
+      <h2>Three growing markets, none of them connected for the end user.</h2>
+      <p>Nigeria's digital lending market, retail investment market, and fractional/proptech real estate market are each growing independently — no platform has credibly combined them into one trusted experience.</p>
+    </div>
+    <div class="prose">
+      <p>A large, digitally native, underserved Gen Z and young professional population is actively looking for accessible ways to build wealth — evidenced by the growth of category leaders like Bamboo, Risevest, Cowrywise, and Chaka, each proving demand in one lane of what ZenVest combines into one.</p>
+      <p>ZenVest's addressable opportunity is the union of users who want more than one of these — which, given how interconnected financial decisions actually are, is most of the target market, not a niche within it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <div class="eyebrow">The Model</div>
+    <div class="sec-head">
+      <h2>ZenVest doesn't originate credit, hold property, or manage funds.</h2>
+      <p>It's the orchestration layer — the AI risk engine, the unified dashboard, and the financial literacy foundation — connecting users to an open set of licensed partners.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar"><span class="n">Pillar 01</span><h3>Credit</h3><p>Loans, credit facilities, bill payment — licensed credit partners, AI-enhanced risk scoring.</p></div>
+      <div class="pillar"><span class="n">Pillar 02</span><h3>Investment</h3><p>Real estate, ETFs, stablecoins, bonds, shares — licensed investment partners, suitability-matched.</p></div>
+      <div class="pillar"><span class="n">Pillar 03</span><h3>Real Estate</h3><p>Sourcing, brokerage, management — turned into fractional, accessible co-ownership.</p></div>
+    </div>
+    <div class="callout">
+      <h4 style="font-size:16.5px; margin-bottom:10px; color:var(--heading);">The Bridge — Deliberately the Last Feature, Not the First</h4>
+      <p style="font-size:13.5px; color:var(--text);">Credit and investment each launch and prove themselves independently before any bridge between them activates — with asset-class-specific loan-to-value limits grounded in real performance data, never a single blanket ratio. Real estate isn't eligible as credit collateral until a proper secondary-transfer mechanism exists.</p>
+    </div>
+  </div>
+</section>
+
+<section id="defensibility">
+  <div class="wrap">
+    <div class="eyebrow">Why This Is Defensible</div>
+    <div class="card-grid three">
+      <div class="card"><span class="k">Network Effects</span><h4>Three pillars, one user</h4><p>A user active across credit, investment, and real estate is significantly harder for a single-category competitor to win away.</p></div>
+      <div class="card"><span class="k">Data Advantage</span><h4>The AI layer compounds</h4><p>Risk models improve with usage across all three pillars simultaneously — a moat a credit-only or investment-only competitor can't replicate.</p></div>
+      <div class="card"><span class="k">Open Ecosystem</span><h4>No single point of failure</h4><p>If one partner underperforms or exits, others can be onboarded without rebuilding the platform.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="revenue">
+  <div class="wrap">
+    <div class="eyebrow">Revenue Model</div>
+    <div class="sec-head">
+      <h2>Revenue-generating from day one — not a growth story that defers monetization.</h2>
+      <p>Every connection on the platform carries a fee, diversified across three pillars so MVP revenue never depends on all three launching at once.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card"><div class="amt">Per user, one-time</div><h5>Onboarding & KYC Fee</h5><p>Identity verification and onboarding cost</p></div>
+      <div class="rev-card"><div class="amt">% of loan</div><h5>Credit Facilitation Fee</h5><p>Paid by the credit partner as a distribution cost</p></div>
+      <div class="rev-card"><div class="amt">% per trade</div><h5>Investment Transaction Fee</h5><p>Paid by the investment partner or in-spread</p></div>
+      <div class="rev-card"><div class="amt">% of deal</div><h5>Real Estate Closing Fee</h5><p>Paid on completed sale/rental/co-ownership deals</p></div>
+      <div class="rev-card"><div class="amt">Monthly/annual</div><h5>Premium Subscription</h5><p>Advanced AI insights, higher credit limits</p></div>
+      <div class="rev-card"><div class="amt">Spread or flat fee</div><h5>Bridge / Leverage Fee</h5><p>Charged on credit-to-invest transactions, once live</p></div>
+      <div class="rev-card"><div class="amt">Small %, trailing</div><h5>AUA Trailing Fee</h5><p>Ongoing AI-driven portfolio monitoring and reporting, later stage</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="eyebrow">Roadmap</div>
+    <div class="sec-head">
+      <h2>Investment-led MVP first — the fastest path to live revenue.</h2>
+      <p>Lower operational risk than credit, lower structuring complexity than real estate.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-tag">Phase 0</div><h4>Partner Discovery</h4><p>Open conversations across credit, investment, and real estate partners.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 1</div><h4>Investment-Led MVP</h4><p>Investment marketplace + required financial literacy layer live. Real transaction-fee revenue.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 2</div><h4>Credit + Real Estate</h4><p>Credit and real estate partners integrated. Facilitation and closing fees added.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 3</div><h4>The Bridge</h4><p>Credit-to-invest and invest-to-settle, strictly within the risk framework.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 4</div><h4>Open Marketplace at Scale</h4><p>Self-service partner onboarding, real user choice per category.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ask">
+  <div class="wrap">
+    <div class="eyebrow">The Ask</div>
+    <div class="sec-head">
+      <h2>Sized to reach a live-revenue MVP, honestly.</h2>
+      <p>Full financial detail — funding stage, amount, and use of funds — is being developed alongside a proper financial model as Phase 0 partner conversations progress, so assumptions are grounded in real partner terms rather than estimated ahead of them.</p>
+    </div>
+    <div class="callout">
+      <p style="font-size:14px; color:var(--text); margin:0;">What can be said now: ZenVest is designed to show investors a platform with live, diversified, multi-pillar fee revenue from its MVP stage — the funding ask will be sized to reach that milestone, plus 12–18 months of runway to prove the model with real partner and user data.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="text-align:center; border-bottom:none; padding:100px 0;">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center; display:flex;">Next Step</div>
+    <h2 style="font-size:clamp(24px,3.6vw,38px); max-width:600px; margin:0 auto 16px;">Let's talk about ZenVest.</h2>
+    <p style="color:var(--text-dim); max-width:500px; margin:0 auto 30px; font-size:15px;">Request the full Ecosystem Prospectus & Partnership Framework, or start a conversation directly.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:invest@zenvest.africa?subject=ZenVest%20—%20Investor%20Conversation">Start a Conversation</a>
+      <a class="btn btn-ghost" href="mailto:invest@zenvest.africa?subject=ZenVest%20—%20Request%20Full%20Prospectus">Request the Full Prospectus</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:15px; width:15px;"> ZENVEST</a>
+    <div class="flinks">
+      <a href="index.html">ZenzaTech</a>
+      <a href="zenvest-welcome.html">About</a>
+      <a href="zenvest-careers.html">Careers</a>
+    </div>
+    <div class="fnote">CONFIDENTIAL — PREPARED FOR PARTNER & INVESTOR REVIEW — © 2026</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

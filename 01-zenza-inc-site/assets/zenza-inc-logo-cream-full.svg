@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="620" viewBox="0 0 520 620">
+  <defs>
+    <linearGradient id="reflectFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="reflectMask">
+      <rect x="0" y="230" width="520" height="60" fill="url(#reflectFade)"/>
+    </mask>
+  </defs>
+
+  <rect x="0" y="0" width="520" height="620" fill="#F2ECDF"/>
+
+  <!-- dashed circle -->
+  <circle cx="260.0" cy="230" r="118" fill="none" stroke="#000000" stroke-width="1.6" stroke-dasharray="6,7"/>
+
+  <!-- reflected/mirrored wordmark (fading, behind main wordmark) -->
+  <g mask="url(#reflectMask)">
+    <g transform="translate(260.0,238) scale(1,-1) translate(-260.0,-238)">
+      <text x="260.0" y="238" text-anchor="middle" font-family="Space Grotesk" font-weight="700"
+            font-size="27" letter-spacing="1.5" fill="#000000">ZENZA INC.</text>
+    </g>
+  </g>
+
+  <!-- main wordmark -->
+  <text x="260.0" y="230" text-anchor="middle" font-family="Space Grotesk" font-weight="700"
+        font-size="27" letter-spacing="1.5" fill="#000000">ZENZA INC.</text>
+
+  <!-- underline -->
+  <line x1="176.3" y1="244" x2="343.7" y2="244" stroke="#000000" stroke-width="1.6"/>
+
+  <!-- subline (EST 2022 / A ZENZA INC. COMPANY) -->
+  <text x="260.0" y="410" text-anchor="middle" font-family="Space Grotesk" font-weight="700"
+        font-size="19" letter-spacing="1.2" fill="#000000">EST 2022</text>
+
+  <text x="260.0" y="478" text-anchor="middle" font-family="Space Grotesk" font-size="13" font-weight="700" letter-spacing="1.4" fill="#000000" opacity="0.9">ZENZA INC.</text>
+<text x="260.0" y="498" text-anchor="middle" font-family="Space Grotesk" font-size="12.5" font-weight="400" letter-spacing="1.4" fill="#000000" opacity="0.55">DREAMING MY IDEAS AND CONCEPTS INTO REALITY</text>
+</svg>

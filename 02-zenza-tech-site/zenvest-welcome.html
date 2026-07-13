@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="zenvest">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZenVest — Create Wealth Together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:88svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 750px 520px at 82% 10%, color-mix(in srgb, var(--teal) 15%, transparent), transparent 60%),
+                radial-gradient(ellipse 600px 460px at 8% 92%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; }
+  .hero h1{ font-size:clamp(28px,4.6vw,50px); line-height:1.16; max-width:760px; margin-bottom:20px; }
+  .hero h1 em{ font-style:normal; color:var(--teal-ink); }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17.5px); color:var(--text-dim); max-width:580px; margin-bottom:32px; }
+
+  .story-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  @media (max-width:860px){ .story-grid{ grid-template-columns:1fr; } }
+  .prose{ font-size:16px; color:var(--text); }
+  .prose p{ margin-bottom:16px; }
+  .prose strong{ color:var(--heading); font-weight:600; }
+  .pull-quote{ border-left:2px solid var(--teal); padding:4px 0 4px 22px; font-family:'Space Grotesk'; font-size:20px; line-height:1.45; color:var(--heading); margin-bottom:20px; }
+  .pull-quote span{ display:block; font-family:'IBM Plex Mono'; font-size:11px; color:var(--text-dim); margin-top:10px; text-transform:uppercase; letter-spacing:0.07em; }
+
+  .card-grid.three{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:860px){ .card-grid.three{ grid-template-columns:1fr; } }
+
+  .next-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .next-card{ background:var(--bg); padding:34px 30px; text-decoration:none; color:inherit; transition:background .2s; }
+  .next-card:hover{ background:var(--panel); }
+  .next-card .nk{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; }
+  .next-card h3{ font-size:19px; margin-bottom:8px; }
+  .next-card p{ font-size:13.5px; color:var(--text-dim); margin-bottom:16px; }
+  .next-card .go{ font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--teal-ink); }
+  @media (max-width:700px){ .next-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:18px; width:18px;"> ZENVEST</a>
+    <div class="navlinks">
+      <a href="zenvest-welcome.html">About</a>
+      <a href="zenvest-investors.html">Investors</a>
+      <a href="zenvest-careers.html">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="index.html" style="padding:8px 14px; font-size:12.5px;">ZenzaTech ↗</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+      <a class="nav-cta" href="#talk">Talk to Us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="eyebrow" style="margin-bottom:14px;">A Zenza Technology Product</div>
+    <h1>The money that would've gone to a shawarma or a new pair of shoes could be the start of something bigger.</h1>
+    <p class="sub">ZenVest is one place to access credit, build an investment portfolio, and move between the two — real estate, ETFs, bonds, shares, and more, with the financial literacy to make good decisions along the way. <em>Create wealth together.</em></p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#story">Read Our Story</a>
+      <a class="btn btn-ghost" href="#talk">Ask Us a Question</a>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="eyebrow">Our Story</div>
+    <div class="story-grid">
+      <div class="prose">
+        <p>Financial opportunity in Nigeria is scattered across systems that don't talk to each other. Credit sits with lenders. Investment sits with asset managers. Real estate sits with brokers you probably don't have a relationship with. A whole generation of financially capable people — Gen Z especially — stays underserved not because they don't want to build wealth, but because no one has made it as easy, immediate, and well-explained as spending.</p>
+        <p>We started ZenVest to close that gap. <strong>Not by becoming a bank, or a broker, or a real estate company ourselves</strong> — by connecting you to the licensed experts who already do those things well, in one place, with one identity, protected by the same guardrails whether you're borrowing, investing, or both.</p>
+      </div>
+      <div>
+        <div class="pull-quote">
+          "Create wealth together."
+          <span>— What ZenVest actually means</span>
+        </div>
+        <p style="color:var(--text-dim); font-size:14.5px;">Together with licensed partners who know credit, investment, and real estate better than any single app could on its own. Together with a community of people building wealth at the same time you are. And together with a platform that's honest about what it takes to do this safely — not just what sounds exciting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow">Why It Matters</div>
+    <div class="sec-head">
+      <h2>Credit, investment, and real estate — as one connected financial life, not three separate apps.</h2>
+      <p>Most platforms make you choose a lane. ZenVest is the only one built around the idea that your credit, your investments, and your future all belong in the same picture.</p>
+    </div>
+    <div class="card-grid three">
+      <div class="card">
+        <span class="k">Credit</span>
+        <h4>Access when you need it</h4>
+        <p>Salary-backed loans, credit facilities, and bill payment — from licensed credit partners, underwritten with the help of a fuller financial picture than a lender usually sees.</p>
+      </div>
+      <div class="card">
+        <span class="k">Investment</span>
+        <h4>Grow what you have</h4>
+        <p>Real estate co-ownership, ETFs, bonds, shares, and stable-value assets — matched to your goals and risk appetite, explained in plain language before you commit to anything.</p>
+      </div>
+      <div class="card">
+        <span class="k">The Bridge</span>
+        <h4>Move between the two, safely</h4>
+        <p>Use credit to invest when it makes sense. Use investment returns to responsibly settle credit. Guardrails — not guesswork — decide how far that can go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="eyebrow">How We Protect You</div>
+    <div class="callout">
+      <h3 style="font-size:20px; margin-bottom:10px;">The riskiest feature is the one we're most careful with.</h3>
+      <p style="font-size:14.5px; color:var(--text); max-width:640px;">Letting you invest with credit and settle credit from investments is powerful — and it's exactly the kind of feature that hurts people when it's rushed. That's why credit and investment each prove themselves on their own first, with real data, before any bridge between them goes live — and even then, within limits set per asset type, not one blanket rule for everything.</p>
+    </div>
+  </div>
+</section>
+
+<section id="talk">
+  <div class="wrap">
+    <div class="eyebrow">Talk to Us</div>
+    <div class="form-wrap">
+      <div>
+        <h2 style="font-size:clamp(22px,3vw,30px); margin-bottom:16px;">Questions, ideas, or want early access?</h2>
+        <p style="color:var(--text-dim); font-size:15px; margin-bottom:20px;">Whether you're curious about how this works, thinking about a partnership, or just want to be first in line — we read everything.</p>
+        <p style="color:var(--text-dim); font-size:13.5px;">Prefer email? Reach us at <a href="mailto:hello@zenvest.africa" style="color:var(--teal-ink); text-decoration:none;">hello@zenvest.africa</a></p>
+      </div>
+      <form id="contactForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" required placeholder="Your full name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="type">This is a...</label>
+          <select id="type">
+            <option>Question</option>
+            <option>Early Access Request</option>
+            <option>Partnership Interest</option>
+            <option>Media / Press Inquiry</option>
+            <option>Something Else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" required placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <span class="form-msg" id="formMsg">Opening your email client…</span>
+        </div>
+        <p class="form-note">This opens your email app with your message pre-filled — we also save a copy here so we don't lose track of it.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="next" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="eyebrow">Where Next?</div>
+    <div class="next-grid">
+      <a class="next-card" href="zenvest-investors.html">
+        <div class="nk" style="color:var(--amber-ink);">For Investors</div>
+        <h3>Looking to fund or partner with us?</h3>
+        <p>Market opportunity, the ecosystem model, revenue plan, and roadmap.</p>
+        <span class="go">View the business case →</span>
+      </a>
+      <a class="next-card" href="zenvest-careers.html">
+        <div class="nk" style="color:var(--amber-ink);">For Builders</div>
+        <h3>Want to help build it?</h3>
+        <p>Open roles, how the team is structured, and an honest look at pay.</p>
+        <span class="go">See open roles →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:15px; width:15px;"> ZENVEST</a>
+    <div class="flinks">
+      <a href="index.html">ZenzaTech</a>
+      <a href="zenvest-investors.html">Investors</a>
+      <a href="zenvest-careers.html">Careers</a>
+      <a href="mailto:hello@zenvest.africa">Contact</a>
+    </div>
+    <div class="fnote">© 2026 ZENVEST — a Zenza Technology product</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  function saveEntry(payload){
+    return fetch('/api/submissions', {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    }).catch(err => console.warn('Could not save to local database (is the server running?)', err));
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const type = document.getElementById('type').value;
+    const message = document.getElementById('message').value.trim();
+
+    saveEntry({ page: 'zenvest-welcome', formType: 'zenvest_contact', name, email, type, message });
+
+    const subject = encodeURIComponent(`ZenVest — ${type} from ${name}`);
+    const bodyLines = [`Name: ${name}`, `Email: ${email}`, `Type: ${type}`, '', message].filter(Boolean);
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = `mailto:hello@zenvest.africa?subject=${subject}&body=${body}`;
+
+    const msg = document.getElementById('formMsg');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 4000);
+  });
+</script>
+</body>
+</html>

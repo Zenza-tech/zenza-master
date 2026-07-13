@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZenVest — Credit. Investment. Real Estate. One Platform.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:94svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 800px 550px at 82% 10%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%),
+                radial-gradient(ellipse 650px 480px at 6% 92%, color-mix(in srgb, var(--amber) 10%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; }
+  .stamp{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--amber-ink); border:1px solid color-mix(in srgb, var(--amber) 40%, transparent); padding:6px 12px; border-radius:var(--radius); background:color-mix(in srgb, var(--amber) 7%, transparent); margin-bottom:26px; }
+  .stamp::before{ content:"●"; font-size:8px; color:var(--amber); }
+  .hero h1{ font-size:clamp(30px,5vw,58px); line-height:1.1; max-width:820px; margin-bottom:20px; }
+  .hero h1 em{ font-style:normal; color:var(--teal-ink); }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17.5px); color:var(--text-dim); max-width:600px; margin-bottom:32px; }
+  .hero-foot{ position:relative; z-index:2; margin-top:52px; padding-top:20px; border-top:1px solid var(--line); display:flex; gap:34px; flex-wrap:wrap; }
+  .hero-foot .stat .num{ font-family:'IBM Plex Mono'; font-size:18px; color:var(--heading); display:block; }
+  .hero-foot .stat .lab{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+
+  .pillar-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:40px; }
+  @media (max-width:860px){ .pillar-grid{ grid-template-columns:1fr; } }
+  .pillar{ background:var(--bg); padding:28px 24px; }
+  .pillar .n{ font-family:'IBM Plex Mono'; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; display:block; }
+  .pillar h3{ font-size:19px; margin-bottom:10px; }
+  .pillar p{ font-size:13.5px; color:var(--text-dim); }
+
+  .bridge-note{ border:1px solid color-mix(in srgb, var(--amber) 40%, transparent); background:color-mix(in srgb, var(--amber) 6%, transparent); padding:28px 30px; margin-top:8px; }
+  .bridge-note h4{ font-size:16.5px; margin-bottom:10px; color:var(--heading); }
+  .bridge-note p{ font-size:13.5px; color:var(--text); }
+
+  .partner-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px; }
+  .partner-tab{ font-family:'IBM Plex Mono'; font-size:12px; padding:9px 16px; border-radius:20px; border:1px solid var(--line-strong); color:var(--text-dim); cursor:pointer; background:none; transition:all .2s; }
+  .partner-tab.active{ background:var(--teal); color:var(--btn-ink); border-color:var(--teal); font-weight:600; }
+  .partner-panel{ display:none; }
+  .partner-panel.active{ display:block; }
+  .partner-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  @media (max-width:860px){ .partner-grid{ grid-template-columns:1fr; } }
+  .partner-grid h4{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--teal-ink); margin-bottom:12px; }
+  .partner-grid ul{ list-style:none; margin-bottom:20px; }
+  .partner-grid li{ font-size:13.5px; color:var(--text-dim); padding:8px 0; border-top:1px solid var(--line); }
+  .partner-grid li:first-child{ border-top:none; }
+
+  .rev-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .rev-card{ background:var(--bg); padding:22px 20px; }
+  .rev-card .amt{ font-family:'Space Grotesk'; font-size:15px; color:var(--teal-ink); margin-bottom:8px; }
+  .rev-card h5{ font-size:14.5px; margin-bottom:6px; }
+  .rev-card p{ font-size:12px; color:var(--text-dim); }
+
+  .cta-band{ text-align:center; padding:100px 0; border-bottom:none; background:linear-gradient(180deg, transparent, color-mix(in srgb, var(--teal) 5%, transparent)); }
+  .cta-band h2{ font-size:clamp(26px,4vw,40px); max-width:640px; margin:0 auto 16px; }
+  .cta-band p{ color:var(--text-dim); max-width:520px; margin:0 auto 32px; font-size:15px; }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="#" class="brand"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:18px; width:18px;"> ZENVEST</a>
+    <div class="navlinks">
+      <a href="#problem">The Problem</a>
+      <a href="#how">How It Works</a>
+      <a href="#partners">Partners</a>
+      <a href="#revenue">Revenue</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+      <a class="nav-cta" href="#contact">Start a Conversation</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="stamp">A Zenza Technology Product</div>
+    <h1>Credit. Investment. Real Estate. <em>One platform.</em></h1>
+    <p class="sub">ZenVest is an open financial ecosystem — not a closed product — giving everyday Nigerians one place to access credit, build an investment portfolio, and move between the two. It doesn't replace credit providers, asset managers, or real estate companies — it's the trusted layer that connects users to them, and to each other.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#partners">See the Partner Model</a>
+      <a class="btn btn-ghost" href="#contact">Request the Full Prospectus</a>
+    </div>
+    <div class="hero-foot">
+      <div class="stat"><span class="num mono">3</span><span class="lab">Open partner categories</span></div>
+      <div class="stat"><span class="num mono">Day 1</span><span class="lab">Revenue-generating MVP</span></div>
+      <div class="stat"><span class="num mono">Open</span><span class="lab">Not exclusive to any single partner</span></div>
+      <div class="stat"><span class="num mono">NG → Africa</span><span class="lab">Market sequencing</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow">The Problem</div>
+    <div class="sec-head">
+      <h2>Financial opportunity in Nigeria is scattered across systems that don't talk to each other.</h2>
+      <p>Credit sits with lenders. Investment sits with asset managers. Real estate sits with brokers. A generation of financially capable people — Gen Z especially — stays underserved not because they don't want to invest, but because no one has made it as easy as spending.</p>
+    </div>
+    <div class="prose" style="max-width:760px; font-size:15.5px; color:var(--text);">
+      <p>The institutions best positioned to serve these users are each optimized for their own lane — a lender underwrites risk but has no investment product; an asset manager structures products but struggles to reach a mass-market audience cost-effectively; a real estate company sources property but has no way to offer fractional ownership to many small investors at once.</p>
+      <p style="margin-top:14px;">ZenVest exists to connect these worlds — one platform, one AI-informed risk profile, one trusted place to learn, decide, and act.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">How It Works</div>
+    <div class="sec-head">
+      <h2>ZenVest doesn't originate credit, hold property, or manage funds.</h2>
+      <p>It's the orchestration layer — the unified dashboard, the AI risk engine, and the financial literacy foundation that makes a complex, heavily regulated set of products accessible to anyone.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar"><span class="n">Pillar 01</span><h3>Credit</h3><p>Salary-backed loans, credit facilities, bill payment, credit/bill cards — originated and underwritten by licensed credit partners, risk-scored with ZenVest's AI layer.</p></div>
+      <div class="pillar"><span class="n">Pillar 02</span><h3>Investment</h3><p>Real estate co-ownership, ETFs, stablecoins, bonds, shares and equity — structured and executed by licensed investment partners, matched to each user's risk profile.</p></div>
+      <div class="pillar"><span class="n">Pillar 03</span><h3>Real Estate</h3><p>Property sourcing, brokerage, and management — turning real estate from a large, illiquid, relationship-gated asset into something accessible in fractions.</p></div>
+    </div>
+    <div class="bridge-note">
+      <h4>The Bridge — Credit ↔ Investment</h4>
+      <p>Users can use credit to invest, and use investment returns to settle credit — the most differentiated part of ZenVest, and the part treated with the most care. <strong style="color:var(--heading);">The bridge is the last major feature to switch on, not the first.</strong> Credit and investment each launch and prove themselves independently before the bridge activates, with conservative, asset-class-specific limits grounded in real performance data — never a single blanket ratio, and real estate isn't treated as credit collateral until a proper secondary-transfer mechanism exists.</p>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="eyebrow">Partner Tracks</div>
+    <div class="sec-head">
+      <h2>A different pitch for every kind of partner — because your goals are different.</h2>
+      <p>ZenVest is open, not exclusive. This isn't a closed deal with three companies — it's a model built to work with any qualified partner in each category.</p>
+    </div>
+
+    <div class="partner-tabs">
+      <button class="partner-tab active" data-tab="credit">Credit Partners</button>
+      <button class="partner-tab" data-tab="investment">Investment Partners</button>
+      <button class="partner-tab" data-tab="realestate">Real Estate Partners</button>
+      <button class="partner-tab" data-tab="future">Future Partners</button>
+    </div>
+
+    <div class="partner-panel active" id="panel-credit">
+      <div class="partner-grid">
+        <div>
+          <h4>What ZenVest Offers You</h4>
+          <ul>
+            <li>A pre-qualified user funnel, already informed by investment behavior — not a cold application</li>
+            <li>Richer risk signal than bureau data alone, with user consent</li>
+            <li>A new, structurally lower-risk repayment channel via investment proceeds</li>
+            <li>Revenue share on facilitation fees, on top of your own interest income</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What We Ask of You</h4>
+          <ul>
+            <li>API or batch integration, matched to your current technical maturity</li>
+            <li>Competitive, transparent rates shown clearly to users</li>
+            <li>A valid lending license and willingness to work within our risk framework</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-panel" id="panel-investment">
+      <div class="partner-grid">
+        <div>
+          <h4>What ZenVest Offers You</h4>
+          <ul>
+            <li>A distribution channel built for first-time and mass-market investors</li>
+            <li>A financial literacy funnel that warms users up before they reach your product shelf</li>
+            <li>Aggregated demand — many small tickets pooled into efficient volume</li>
+            <li>A genuine role structuring new categories, especially fractional real estate vehicles</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What We Ask of You</h4>
+          <ul>
+            <li>Product access via API or structured data feed</li>
+            <li>Fair, transparent fee structure disclosed clearly to users</li>
+            <li>Collaboration on suitability and risk-appropriate product matching</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-panel" id="panel-realestate">
+      <div class="partner-grid">
+        <div>
+          <h4>What ZenVest Offers You</h4>
+          <ul>
+            <li>A fractional-investment capital pool — many buyers instead of needing one</li>
+            <li>A new co-ownership and co-lease product line</li>
+            <li>Continuity of your management fee model as you keep managing the property</li>
+            <li>Marketing reach into a large, actively-investing user base</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What We Ask of You</h4>
+          <ul>
+            <li>Property vetting standards and transparent documentation</li>
+            <li>Cooperation on legal structuring (SPV/REIT-style vehicles)</li>
+            <li>Clear, disclosed fee structure and realistic timelines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-panel" id="panel-future">
+      <div class="partner-grid">
+        <div>
+          <h4>Categories We're Extending To</h4>
+          <ul>
+            <li>Payment service providers & switches — bill payment, card issuance, settlement</li>
+            <li>Credit bureaus & alternative data providers — strengthening the AI risk layer</li>
+            <li>Insurance partners — protecting credit facilities and investment holdings</li>
+            <li>Legal & SPV administration partners — scaling the real estate legal wrapper</li>
+          </ul>
+        </div>
+        <div>
+          <h4>If You're Reading This</h4>
+          <p style="font-size:13.5px; color:var(--text-dim);">If your business fits somewhere in this ecosystem and isn't listed above, that's exactly the point of building this open rather than closed — reach out. The model is designed to grow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="revenue">
+  <div class="wrap">
+    <div class="eyebrow">Revenue Model</div>
+    <div class="sec-head">
+      <h2>Revenue-generating from day one — not a growth story that defers monetization.</h2>
+      <p>Every connection on the platform carries a fee. Diversified across three pillars means MVP revenue never depends on all three launching at once.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card"><div class="amt">Per user, one-time</div><h5>Onboarding & KYC Fee</h5><p>Covers identity verification and onboarding cost</p></div>
+      <div class="rev-card"><div class="amt">% of loan</div><h5>Credit Facilitation Fee</h5><p>Paid by the credit partner as a distribution cost</p></div>
+      <div class="rev-card"><div class="amt">% per trade</div><h5>Investment Transaction Fee</h5><p>Paid by the investment partner or embedded in spread</p></div>
+      <div class="rev-card"><div class="amt">% of deal</div><h5>Real Estate Closing Fee</h5><p>Paid on completed sale, rental, or co-ownership deals</p></div>
+      <div class="rev-card"><div class="amt">Monthly/annual</div><h5>Premium Subscription</h5><p>Advanced AI insights, higher credit limits, priority support</p></div>
+      <div class="rev-card"><div class="amt">Spread or flat fee</div><h5>Bridge / Leverage Fee</h5><p>Charged on credit-to-invest transactions once the bridge is live</p></div>
+      <div class="rev-card"><div class="amt">Small %, trailing</div><h5>AUA Trailing Fee</h5><p>Ongoing AI-driven portfolio monitoring and reporting, later stage</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="eyebrow">Roadmap</div>
+    <div class="sec-head">
+      <h2>Investment-led MVP first — the fastest path to live revenue.</h2>
+      <p>Lower operational risk than credit, lower structuring complexity than real estate.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-tag">Phase 0</div><h4>Partner Discovery</h4><p>Open conversations across credit, investment, and real estate partners — not limited to any single named company.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 1</div><h4>Investment-Led MVP</h4><p>Investment marketplace + required financial literacy layer live. Onboarding and transaction fees generating real revenue.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 2</div><h4>Credit + Real Estate</h4><p>Credit partner(s) and real estate partner(s) integrated. Facilitation and closing fees added.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 3</div><h4>The Bridge</h4><p>Credit-to-invest and invest-to-settle activated, strictly within the asset-class-specific risk framework.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Phase 4</div><h4>Open Marketplace at Scale</h4><p>Self-service partner onboarding — multiple competing partners per category, real user choice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center; display:flex;">Let's Talk</div>
+    <h2>Credit partner, investment partner, real estate partner, or investor — there's a conversation for you.</h2>
+    <p>Request the full Ecosystem Prospectus, or start a conversation directly. Every partner category gets a pitch built for them, not a one-size-fits-all deck.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:partnerships@zenzatech.com?subject=ZenVest%20—%20Partnership%20Conversation">Start a Conversation</a>
+      <a class="btn btn-ghost" href="mailto:partnerships@zenzatech.com?subject=ZenVest%20—%20Request%20Full%20Prospectus">Request the Full Prospectus</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:14px; display:flex; align-items:center; gap:8px;">
+      <img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:16px; width:16px;"> ZENVEST
+    </div>
+    <div class="flinks">
+      <a href="mailto:partnerships@zenzatech.com">Partnerships</a>
+    </div>
+    <div class="fnote">A ZENZA TECHNOLOGY PRODUCT — © 2026</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  document.querySelectorAll('.partner-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.partner-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.partner-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

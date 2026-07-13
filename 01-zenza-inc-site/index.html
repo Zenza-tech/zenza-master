@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza Inc. — Dreaming Ideas Into Reality</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F2ECDF;
+    --cream-2:#EAE2D0;
+    --ink:#12100C;
+    --ink-dim:#5B564A;
+    --line:rgba(18,16,12,0.14);
+    --line-strong:rgba(18,16,12,0.22);
+    --teal:#16B8A6;
+    --teal-dim:#0E8C82;
+    --amber:#C9922A;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--cream); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink); }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+  @media (max-width:720px){ .wrap{ padding:0 20px; } }
+
+  nav{ position:fixed; top:0; left:0; right:0; z-index:100; background:color-mix(in srgb, var(--cream) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .brand{ display:flex; align-items:center; gap:9px; font-family:'Space Grotesk'; font-weight:700; font-size:16px; letter-spacing:0.04em; text-decoration:none; color:var(--ink); }
+  .brand img{ height:22px; width:auto; }
+  .navlinks{ display:flex; gap:26px; font-size:13.5px; color:var(--ink-dim); }
+  .navlinks a{ text-decoration:none; transition:color .2s; }
+  .navlinks a:hover{ color:var(--ink); }
+  @media (max-width:760px){ .navlinks{ display:none; } }
+  .nav-cta{ font-family:'IBM Plex Mono'; font-size:12px; color:#fff; background:var(--ink); padding:9px 16px; border-radius:2px; text-decoration:none; font-weight:600; }
+  .nav-cta:hover{ opacity:0.85; }
+
+  /* HERO */
+  .hero{ min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:120px 20px 80px; }
+  .hero img.mark{ width:190px; margin-bottom:36px; }
+  .hero h1{ font-size:clamp(30px,5vw,54px); line-height:1.16; max-width:760px; margin-bottom:22px; }
+  .hero p.sub{ font-size:clamp(15px,1.6vw,18px); color:var(--ink-dim); max-width:520px; margin-bottom:38px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:2px; text-decoration:none; font-size:14.5px; font-weight:600; border:1px solid transparent; transition:all .2s; }
+  .btn-ink{ background:var(--ink); color:var(--cream); }
+  .btn-ink:hover{ opacity:0.85; transform:translateY(-1px); }
+  .btn-outline{ border-color:var(--line-strong); color:var(--ink); }
+  .btn-outline:hover{ border-color:var(--ink); }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+  section{ padding:100px 0; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:16px; }
+  .sec-head{ max-width:680px; margin-bottom:50px; }
+  .sec-head h2{ font-size:clamp(24px,3.2vw,38px); margin-bottom:14px; }
+  .sec-head p{ color:var(--ink-dim); font-size:15.5px; }
+
+  /* PHILOSOPHY */
+  .philosophy{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  @media (max-width:860px){ .philosophy{ grid-template-columns:1fr; } }
+  .philosophy .prose p{ font-size:16px; margin-bottom:18px; color:#2B281F; }
+  .philosophy .prose strong{ color:var(--ink); }
+  .pull{ font-family:'Space Grotesk'; font-size:23px; line-height:1.45; border-left:2px solid var(--ink); padding-left:22px; }
+
+  /* COMPANIES */
+  .company-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:760px){ .company-grid{ grid-template-columns:1fr; } }
+  .company-card{ background:var(--cream); padding:34px 30px; position:relative; }
+  .company-card .status{ font-family:'IBM Plex Mono'; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; padding:4px 9px; border-radius:12px; display:inline-block; margin-bottom:16px; }
+  .company-card .status.live{ background:color-mix(in srgb, var(--teal) 18%, transparent); color:var(--teal-dim); }
+  .company-card .status.building{ background:color-mix(in srgb, var(--amber) 20%, transparent); color:#8a6415; }
+  .company-card h3{ font-size:20px; margin-bottom:10px; }
+  .company-card p{ font-size:14px; color:var(--ink-dim); margin-bottom:18px; }
+  .company-card .go{ font-family:'IBM Plex Mono'; font-size:12.5px; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:1px; }
+  .company-card .go.disabled{ color:var(--ink-dim); border-color:var(--line-strong); cursor:default; }
+
+  /* TRANSITION / BRIDGE TO ZENZA TECH — deliberately shifts toward the tech palette */
+  .bridge{
+    padding:110px 0; text-align:center; border-bottom:none;
+    background:linear-gradient(180deg, var(--cream) 0%, #0F1D2E 100%);
+  }
+  .bridge .eyebrow{ color:#16B8A6; justify-content:center; display:flex; }
+  .bridge h2{ color:#F3F5F7; font-size:clamp(26px,4vw,42px); max-width:640px; margin:0 auto 16px; }
+  .bridge p{ color:#8B96A8; max-width:520px; margin:0 auto 34px; font-size:15px; }
+  .bridge .btn-teal{ background:#16B8A6; color:#08131F; }
+  .bridge .btn-teal:hover{ background:#38d0be; }
+
+  footer{ background:#0A1420; padding:40px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  footer .brand{ color:#F3F5F7; }
+  footer .fnote{ font-family:'IBM Plex Mono'; font-size:11.5px; color:#8B96A8; }
+  footer .flinks{ display:flex; gap:20px; font-size:13px; color:#8B96A8; }
+  footer .flinks a{ text-decoration:none; }
+  footer .flinks a:hover{ color:#16B8A6; }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="assets/zenza-inc-mark-transparent-black.svg" alt=""> ZENZA INC.</a>
+    <div class="navlinks">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#companies">Companies</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://zenzatech.com">Zenza Technology →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="mark" src="assets/zenza-inc-mark-transparent-black.svg" alt="Zenza Inc.">
+  <h1>We don't build one company. We build the ones after it, too.</h1>
+  <p class="sub">Zenza Inc. is a holding company — a home for ideas that are ready to become their own companies, each independent, each accountable for its own outcome.</p>
+  <div class="cta-row">
+    <a class="btn btn-ink" href="#companies">See Our Companies</a>
+    <a class="btn btn-outline" href="#philosophy">Our Philosophy</a>
+  </div>
+</header>
+
+<section id="philosophy">
+  <div class="wrap">
+    <div class="eyebrow">Philosophy</div>
+    <div class="philosophy">
+      <div class="prose">
+        <p>Zenza Inc. exists separately from any one product, any one team, and any one investor. It's not a brand you'll interact with day to day — it's the structure underneath the companies you will.</p>
+        <p>Each company under Zenza Inc. is <strong>built to stand on its own</strong>: its own mission, its own team, its own path to sustainability. Zenza Inc.'s job is to originate that idea, give it what it needs to become real, and then let it operate as a separate, accountable company — not a feature of a bigger one.</p>
+        <p>That's deliberate. A holding structure that stays disciplined about separation protects each company's focus, and protects investors and partners in any one company from being tangled up in the outcomes of another.</p>
+      </div>
+      <div>
+        <div class="pull">"Dreaming my ideas and concepts into reality."</div>
+        <p style="margin-top:22px; color:var(--ink-dim); font-size:14px;">That's the line under our name for a reason — it's the whole job description. Zenza Inc. is where an idea starts. What it becomes is up to the company we build around it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="companies">
+  <div class="wrap">
+    <div class="eyebrow">Companies</div>
+    <div class="sec-head">
+      <h2>What we've started, and what's next.</h2>
+      <p>One company is live today. The rest are in active development — including the design and content work behind our first physical products.</p>
+    </div>
+
+    <div class="company-grid">
+      <div class="company-card">
+        <span class="status live">Live</span>
+        <h3>Zenza Technology</h3>
+        <p>Our technology company — currently building Zenza FID, a fraud-intelligence platform for African financial institutions, with more products planned.</p>
+        <a class="go" href="https://zenzatech.com">Visit Zenza Technology →</a>
+      </div>
+      <div class="company-card">
+        <span class="status building">In Development</span>
+        <h3>Zenza Branding &amp; Design</h3>
+        <p>Design and brand identity work across the Zenza portfolio — currently developing apparel and brand content to bring the Zenza name to life beyond a screen.</p>
+        <span class="go disabled">Coming soon</span>
+      </div>
+      <div class="company-card">
+        <span class="status building">In Development</span>
+        <h3>Zenza Media</h3>
+        <p>Content and storytelling for the companies under Zenza Inc. — the voice behind how each company shows up publicly.</p>
+        <span class="go disabled">Coming soon</span>
+      </div>
+      <div class="company-card">
+        <span class="status building">In Development</span>
+        <h3>Zenza Advertising</h3>
+        <p>Marketing and growth for Zenza companies and, eventually, outside clients.</p>
+        <span class="go disabled">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bridge">
+  <div class="wrap">
+    <div class="eyebrow">Our First Company</div>
+    <h2>Zenza Technology is already building.</h2>
+    <p>Explore what our technology company is working on — starting with Zenza FID, a fraud-intelligence platform for African banks and financial institutions.</p>
+    <a class="btn btn-teal" href="https://zenzatech.com">Explore Zenza Technology →</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="brand" style="font-size:14px; display:flex; align-items:center; gap:8px;">
+      <img src="assets/zenza-inc-mark-transparent-white.svg" alt="" style="height:18px;"> ZENZA INC.
+    </div>
+    <div class="flinks">
+      <a href="https://zenzatech.com">Zenza Technology</a>
+      <a href="mailto:hello@zenzainc.com">Contact</a>
+    </div>
+    <div class="fnote">EST 2022 — © 2026 ZENZA INC.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('section .wrap > *').forEach(el=>{
+    el.classList.add('reveal'); io.observe(el);
+  });
+</script>
+</body>
+</html>

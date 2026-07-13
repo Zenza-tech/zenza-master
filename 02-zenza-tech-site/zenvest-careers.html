@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="zenvest">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZenVest — Build With Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:78svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 750px 520px at 85% 8%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%),
+                radial-gradient(ellipse 600px 460px at 5% 95%, color-mix(in srgb, var(--amber) 11%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; padding:56px 0; }
+  .stamp{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--amber-ink); border:1px solid color-mix(in srgb, var(--amber) 40%, transparent); padding:6px 12px; border-radius:var(--radius); background:color-mix(in srgb, var(--amber) 7%, transparent); margin-bottom:26px; }
+  .stamp::before{ content:"●"; font-size:8px; color:var(--amber); }
+  .hero h1{ font-size:clamp(28px,4.6vw,52px); line-height:1.14; max-width:780px; margin-bottom:18px; }
+  .hero h1 em{ font-style:normal; color:var(--teal-ink); }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17px); color:var(--text-dim); max-width:580px; margin-bottom:30px; }
+  .hero-foot{ position:relative; z-index:2; margin-top:44px; padding-top:20px; border-top:1px solid var(--line); display:flex; gap:34px; flex-wrap:wrap; }
+  .hero-foot .stat .num{ font-family:'IBM Plex Mono'; font-size:18px; color:var(--heading); display:block; }
+  .hero-foot .stat .lab{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+
+  .role-group + .role-group{ margin-top:40px; }
+  .role-group h3{ font-size:13.5px; font-family:'IBM Plex Mono'; text-transform:uppercase; letter-spacing:0.09em; color:var(--text-dim); margin-bottom:14px; padding-bottom:9px; border-bottom:1px solid var(--line); }
+
+  .honest-box h3{ font-size:20px; margin-bottom:14px; }
+  .honest-box p{ font-size:14.5px; color:var(--text); margin-bottom:14px; max-width:760px; }
+  .honest-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:22px; }
+  @media (max-width:860px){ .honest-grid{ grid-template-columns:1fr; } }
+
+  .viewer-shell{ border:1px solid var(--line-strong); background:var(--panel); position:relative; }
+  .viewer-topbar{ display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:8px; }
+  .viewer-topbar .vt-label{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--amber-ink); text-transform:uppercase; letter-spacing:0.07em; }
+  .viewer-topbar .vt-badge{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); border:1px solid var(--line-strong); padding:4px 8px; border-radius:var(--radius); }
+  .viewer-body{ max-height:520px; overflow-y:auto; padding:30px 34px; position:relative; user-select:none; -webkit-user-select:none; }
+  .viewer-body::before{
+    content:"ZENVEST — VIEW ONLY"; position:absolute; inset:0; pointer-events:none;
+    display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px 90px; padding:40px;
+    font-family:'IBM Plex Mono'; font-size:13px; color:color-mix(in srgb, var(--heading) 4%, transparent);
+    transform:rotate(-18deg) scale(1.4); z-index:1; line-height:5;
+  }
+  .viewer-body h4{ font-family:'Space Grotesk'; font-size:16px; color:var(--heading); margin:24px 0 9px; position:relative; z-index:2; }
+  .viewer-body h4:first-child{ margin-top:0; }
+  .viewer-body p, .viewer-body li{ font-size:13.5px; color:var(--text); position:relative; z-index:2; }
+  .viewer-body p{ margin-bottom:11px; }
+  .viewer-body ul{ margin:0 0 13px 18px; }
+  .viewer-body li{ margin-bottom:6px; color:var(--text-dim); }
+  .viewer-body .vtag{ font-family:'IBM Plex Mono'; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--teal-ink); display:block; margin-bottom:4px; }
+  .viewer-fade{ position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(180deg, transparent, var(--panel)); pointer-events:none; }
+  .viewer-footer{ display:flex; justify-content:space-between; align-items:center; padding:11px 20px; border-top:1px solid var(--line); flex-wrap:wrap; gap:6px; }
+  .viewer-footer .vf-note{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); }
+
+  @media print{ #proof, .viewer-shell{ display:none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:18px; width:18px;"> ZENVEST</a>
+    <div class="navlinks">
+      <a href="zenvest-welcome.html">About</a>
+      <a href="#roles">Open Roles</a>
+      <a href="#comp">How We Pay</a>
+      <a href="zenvest-investors.html">Investors</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="careers.html" style="padding:8px 14px; font-size:12.5px;">All ZenzaTech Roles</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+      <a class="nav-cta" href="#interest">Show Interest</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="stamp">We're Building the Founding Team</div>
+    <h1>Help build the platform that lets people <em>create wealth together.</em></h1>
+    <p class="sub">ZenVest is early-stage and honest about it. We're looking for people who understand credit risk, capital markets, real estate structuring, or fintech engineering — and who want to help make genuinely complex financial products accessible to people who've never had access before.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#roles">See Open Roles ↓</a>
+      <a class="btn btn-ghost" href="careers.html">See All ZenzaTech Roles</a>
+    </div>
+    <div class="hero-foot">
+      <div class="stat"><span class="num mono">Pre-MVP</span><span class="lab">Stage</span></div>
+      <div class="stat"><span class="num mono">Multi-Regulatory</span><span class="lab">Credit + capital markets + real estate</span></div>
+      <div class="stat"><span class="num mono">Remote-first</span><span class="lab">Nigeria-anchored</span></div>
+      <div class="stat"><span class="num mono">Equity + Stipend</span><span class="lab">Early-stage comp</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="eyebrow">Open Roles</div>
+    <div class="sec-head">
+      <h2>Roles this specific product needs — genuinely different from our other teams.</h2>
+      <p>A credit-and-investment platform draws on almost entirely different expertise than fraud intelligence. These roles are ZenVest-specific.</p>
+    </div>
+
+    <div class="role-group">
+      <h3>Risk & Capital Markets</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Credit Risk Modeler / Analyst</h4><p>Designs the AI credit-scoring model and the asset-class-specific loan-to-value framework governing the credit-investment bridge.</p></div><div class="row-meta"><span class="tag c-teal">Founding</span></div></div>
+        <div class="row-item"><div><h4>Investment Products Specialist</h4><p>Capital markets background — works directly with investment partners (ARM, Cardinal Stone, and others) on product structuring and suitability matching.</p></div><div class="row-meta"><span class="tag c-teal">Founding</span></div></div>
+        <div class="row-item"><div><h4>Real Estate Structuring Lead</h4><p>SPV/REIT-style legal structuring for fractional co-ownership products, working alongside real estate and investment partners.</p></div><div class="row-meta"><span class="tag c-teal">Month 2–3</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Engineering</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Fintech Backend Engineer</h4><p>Core services, ledger accuracy, and integration with credit and investment partner APIs — precision matters more than speed here.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>Frontend Engineer</h4><p>The unified dashboard — credit, investment, and real estate as one coherent, trustworthy experience.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>Data / AI-ML Engineer</h4><p>Credit risk scoring and investment suitability models — working closely with the Credit Risk Modeler.</p></div><div class="row-meta"><span class="tag c-teal">Month 2–3</span></div></div>
+        <div class="row-item"><div><h4>DevSecOps Engineer</h4><p>Infrastructure and security for a platform handling credit and investment data across multiple regulatory regimes.</p></div><div class="row-meta"><span class="tag c-teal">Month 2–3</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Partnerships & Compliance</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Partnerships Lead</h4><p>Runs parallel conversations across credit, investment, and real estate partner categories — a different pitch for each, full-time.</p></div><div class="row-meta"><span class="tag c-amber">Founding</span></div></div>
+        <div class="row-item"><div><h4>Compliance & Regulatory Lead</h4><p>Multi-regulatory: lending regulation, SEC/capital markets positioning, and real estate brokerage requirements, all at once.</p></div><div class="row-meta"><span class="tag c-amber">Month 3–4</span></div></div>
+        <div class="row-item"><div><h4>Financial Literacy Content Lead</h4><p>Owns the education layer that makes leveraged, multi-asset products safe for first-time users — a genuine risk control, not just content marketing.</p></div><div class="row-meta"><span class="tag c-amber">Month 3–4</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Interns</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Engineering Intern</h4><p>Work alongside the core team on real, shipped features.</p></div><div class="row-meta"><span class="tag c-slate">Intern</span></div></div>
+        <div class="row-item"><div><h4>Capital Markets / Research Intern</h4><p>Support investment product research and partner due diligence.</p></div><div class="row-meta"><span class="tag c-slate">Intern</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Advisors (Equity / Honorary)</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Capital Markets / Securities Counsel</h4><p>Investment partner structuring and the advice-vs-information regulatory boundary.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+        <div class="row-item"><div><h4>Lending & Consumer Credit Counsel</h4><p>The credit pillar and the bridge mechanism specifically.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+        <div class="row-item"><div><h4>Real Estate / SPV Structuring Counsel</h4><p>The fractional ownership legal wrapper.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comp">
+  <div class="wrap">
+    <div class="eyebrow">How We Pay</div>
+    <div class="callout honest-box">
+      <h3>Early-stage, same as every Zenza Technology product — and we'd rather be upfront about it.</h3>
+      <p>ZenVest is pre-MVP. Cash compensation is modest right now — closer to a stipend than a market-rate salary for most roles — paired with meaningful equity and real ownership of a product with genuinely rare scope (three regulated financial categories in one platform). It moves toward market rate as we close funding and land partner integrations.</p>
+      <p>If you need full market-rate pay right now, this probably isn't the stage for you yet, and that's fine. If you're drawn to the specific challenge of making credit, investment, and real estate work together safely — this is exactly the stage for that.</p>
+      <div class="honest-grid">
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Cash</span><p>Modest monthly stipend for full-time roles, reviewed as funding lands.</p></div>
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Equity</span><p>Meaningful founding-team equity, formalized once terms are set.</p></div>
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Scope</span><p>Rare exposure to three regulated financial categories at once — a genuinely unusual resume line.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About the Product</div>
+    <div class="sec-head">
+      <h2>What you'd actually be building.</h2>
+      <p>A view-only summary — enough to understand the mission and scope. The full Ecosystem Prospectus is shared later in the conversation.</p>
+    </div>
+    <div class="viewer-shell">
+      <div class="viewer-topbar">
+        <span class="vt-label">ZenVest — Ecosystem Summary</span>
+        <span class="vt-badge">View Only · Not Downloadable</span>
+      </div>
+      <div class="viewer-body" id="viewerBody">
+        <span class="vtag">Vision</span>
+        <h4>Create wealth together</h4>
+        <p>ZenVest is an open financial ecosystem connecting users to licensed credit, investment, and real estate partners under one dashboard, one AI risk profile, and one trusted experience — without ZenVest itself becoming any of those licensed institutions.</p>
+
+        <span class="vtag">The Problem</span>
+        <h4>Credit, investment, and real estate don't talk to each other</h4>
+        <p>Each institution is optimized for its own lane. Users are left to stitch together a financial life across disconnected apps and relationships, with no single place to learn, decide, and act — and a generation of financially capable young people stays underserved as a result.</p>
+
+        <span class="vtag">What You'd Be Building</span>
+        <ul>
+          <li><strong>Credit access</strong> — loans and facilities via licensed credit partners, AI-enhanced risk scoring</li>
+          <li><strong>Investment marketplace</strong> — real estate co-ownership, ETFs, bonds, shares, stable-value assets</li>
+          <li><strong>The Bridge</strong> — credit-to-invest and invest-to-settle-credit, gated by an asset-class-specific risk framework</li>
+          <li><strong>Financial literacy layer</strong> — required education before complex or leveraged features unlock</li>
+          <li><strong>Open partner marketplace</strong> — multiple partners per category, not exclusive lock-in to any one</li>
+        </ul>
+
+        <span class="vtag">Where We Are</span>
+        <p>Pre-MVP, Phase 0: partner discovery conversations across credit, investment, and real estate categories. Phase 1 (the first build) is an investment-led MVP — lower operational risk than credit, lower structuring complexity than real estate, fastest path to live transaction-fee revenue.</p>
+
+        <span class="vtag">What We Won't Compromise On</span>
+        <p>The credit-investment bridge is deliberately the last major feature we build, not the first — activated only after credit and investment have each proven themselves independently with real data, within conservative, asset-class-specific limits.</p>
+
+        <span class="vtag">Who We're Building For</span>
+        <p>Salary earners, first-time investors, Gen Z, and seasoned professionals alike — anyone who wants more from their money than a savings account, and hasn't had an accessible, trustworthy place to start.</p>
+      </div>
+      <div class="viewer-fade"></div>
+      <div class="viewer-footer">
+        <span class="vf-note">Selection, copying, right-click and printing are disabled on this summary.</span>
+        <span class="vf-note">Full Ecosystem Prospectus shared later in process.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interest">
+  <div class="wrap">
+    <div class="eyebrow">Show Interest</div>
+    <div class="form-wrap">
+      <div>
+        <h2 style="font-size:clamp(22px,3vw,30px); margin-bottom:16px;">Tell us who you are and where you'd fit.</h2>
+        <p style="color:var(--text-dim); font-size:15px; margin-bottom:20px;">No formal application process yet — just tell us about yourself. We read every message personally.</p>
+        <p style="color:var(--text-dim); font-size:13.5px;">Prefer email? Reach us at <a href="mailto:careers@zenvest.africa" style="color:var(--teal-ink); text-decoration:none;">careers@zenvest.africa</a></p>
+      </div>
+      <form id="interestForm">
+        <div class="field"><label for="name">Name</label><input type="text" id="name" required placeholder="Your full name"></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" required placeholder="you@email.com"></div>
+        <div class="field">
+          <label for="role">Role you're interested in</label>
+          <select id="role">
+            <option>Credit Risk Modeler / Analyst</option>
+            <option>Investment Products Specialist</option>
+            <option>Real Estate Structuring Lead</option>
+            <option>Fintech Backend Engineer</option>
+            <option>Frontend Engineer</option>
+            <option>Data / AI-ML Engineer</option>
+            <option>DevSecOps Engineer</option>
+            <option>Partnerships Lead</option>
+            <option>Compliance & Regulatory Lead</option>
+            <option>Financial Literacy Content Lead</option>
+            <option>Engineering Intern</option>
+            <option>Capital Markets / Research Intern</option>
+            <option>Advisor</option>
+            <option>Something else / not listed</option>
+          </select>
+        </div>
+        <div class="field"><label for="link">Portfolio / LinkedIn / CV link (optional)</label><input type="text" id="link" placeholder="https://..."></div>
+        <div class="field"><label for="message">Why this, why now?</label><textarea id="message" required placeholder="Tell us a bit about yourself..."></textarea></div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Send My Interest</button>
+          <span class="form-msg" id="formMsg">Opening your email client…</span>
+        </div>
+        <p class="form-note">This opens your email app pre-filled to careers@zenvest.africa — we also save a copy here so nothing gets lost.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-gold.svg" alt="" style="height:15px; width:15px;"> ZENVEST</a>
+    <div class="flinks">
+      <a href="index.html">ZenzaTech</a>
+      <a href="zenvest-welcome.html">About</a>
+      <a href="zenvest-investors.html">Investors</a>
+      <a href="mailto:careers@zenvest.africa">Careers Email</a>
+    </div>
+    <div class="fnote">© 2026 ZENVEST — a Zenza Technology product</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  const viewer = document.getElementById('viewerBody');
+  viewer.addEventListener('contextmenu', e => e.preventDefault());
+  viewer.addEventListener('copy', e => e.preventDefault());
+  viewer.addEventListener('cut', e => e.preventDefault());
+  viewer.addEventListener('dragstart', e => e.preventDefault());
+  document.addEventListener('keydown', (e) => {
+    const k = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && ['p','s'].includes(k)) e.preventDefault();
+    if ((e.ctrlKey || e.metaKey) && k === 'c' && window.getSelection().toString() &&
+        viewer.contains(window.getSelection().anchorNode)) e.preventDefault();
+  });
+
+  function saveEntry(payload){
+    return fetch('/api/submissions', {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    }).catch(err => console.warn('Could not save to local database (is the server running?)', err));
+  }
+
+  document.getElementById('interestForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const role = document.getElementById('role').value;
+    const link = document.getElementById('link').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    saveEntry({ page: 'zenvest-careers', formType: 'zenvest_career_interest', name, email, role, link, message });
+
+    const subject = encodeURIComponent(`ZenVest — Interest: ${role} — ${name}`);
+    const bodyLines = [`Name: ${name}`, `Email: ${email}`, `Role of interest: ${role}`, link ? `Link: ${link}` : null, '', message].filter(Boolean);
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = `mailto:careers@zenvest.africa?subject=${subject}&body=${body}`;
+
+    const msg = document.getElementById('formMsg');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 4000);
+  });
+</script>
+</body>
+</html>

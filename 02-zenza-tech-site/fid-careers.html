@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza FID — Build With Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero{ min-height:78svh; display:flex; flex-direction:column; justify-content:center; padding-top:64px; position:relative; overflow:hidden; }
+  .hero .glow{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse 750px 520px at 85% 8%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 60%),
+                radial-gradient(ellipse 600px 460px at 5% 95%, color-mix(in srgb, var(--amber) 9%, transparent), transparent 60%); }
+  .hero-content{ position:relative; z-index:2; padding:56px 0; }
+  .stamp{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--amber-ink); border:1px solid color-mix(in srgb, var(--amber) 40%, transparent); padding:6px 12px; border-radius:var(--radius); background:color-mix(in srgb, var(--amber) 7%, transparent); margin-bottom:26px; }
+  .stamp::before{ content:"●"; font-size:8px; color:var(--amber); }
+  .hero h1{ font-size:clamp(28px,4.6vw,52px); line-height:1.14; max-width:780px; margin-bottom:18px; }
+  .hero h1 em{ font-style:normal; color:var(--teal-ink); }
+  .hero p.sub{ font-size:clamp(15px,1.5vw,17px); color:var(--text-dim); max-width:580px; margin-bottom:30px; }
+  .hero-foot{ position:relative; z-index:2; margin-top:44px; padding-top:20px; border-top:1px solid var(--line); display:flex; gap:34px; flex-wrap:wrap; }
+  .hero-foot .stat .num{ font-family:'IBM Plex Mono'; font-size:18px; color:var(--heading); display:block; }
+  .hero-foot .stat .lab{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+
+  .role-group + .role-group{ margin-top:40px; }
+  .role-group h3{ font-size:13.5px; font-family:'IBM Plex Mono'; text-transform:uppercase; letter-spacing:0.09em; color:var(--text-dim); margin-bottom:14px; padding-bottom:9px; border-bottom:1px solid var(--line); }
+
+  .honest-box h3{ font-size:20px; margin-bottom:14px; }
+  .honest-box p{ font-size:14.5px; color:var(--text); margin-bottom:14px; max-width:760px; }
+  .honest-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:22px; }
+  @media (max-width:860px){ .honest-grid{ grid-template-columns:1fr; } }
+
+  .viewer-shell{ border:1px solid var(--line-strong); background:var(--panel); position:relative; }
+  .viewer-topbar{ display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:8px; }
+  .viewer-topbar .vt-label{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--amber-ink); text-transform:uppercase; letter-spacing:0.07em; }
+  .viewer-topbar .vt-badge{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); border:1px solid var(--line-strong); padding:4px 8px; border-radius:var(--radius); }
+  .viewer-body{ max-height:520px; overflow-y:auto; padding:30px 34px; position:relative; user-select:none; -webkit-user-select:none; }
+  .viewer-body::before{
+    content:"ZENZA FID — VIEW ONLY"; position:absolute; inset:0; pointer-events:none;
+    display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px 90px; padding:40px;
+    font-family:'IBM Plex Mono'; font-size:13px; color:color-mix(in srgb, var(--heading) 4%, transparent);
+    transform:rotate(-18deg) scale(1.4); z-index:1; line-height:5;
+  }
+  .viewer-body h4{ font-family:'Space Grotesk'; font-size:16px; color:var(--heading); margin:24px 0 9px; position:relative; z-index:2; }
+  .viewer-body h4:first-child{ margin-top:0; }
+  .viewer-body p, .viewer-body li{ font-size:13.5px; color:var(--text); position:relative; z-index:2; }
+  .viewer-body p{ margin-bottom:11px; }
+  .viewer-body ul{ margin:0 0 13px 18px; }
+  .viewer-body li{ margin-bottom:6px; color:var(--text-dim); }
+  .viewer-body .vtag{ font-family:'IBM Plex Mono'; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--teal-ink); display:block; margin-bottom:4px; }
+  .viewer-fade{ position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(180deg, transparent, var(--panel)); pointer-events:none; }
+  .viewer-footer{ display:flex; justify-content:space-between; align-items:center; padding:11px 20px; border-top:1px solid var(--line); flex-wrap:wrap; gap:6px; }
+  .viewer-footer .vf-note{ font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text-dim); }
+
+  @media print{ #proof, .viewer-shell{ display:none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="index.html" class="brand" style="gap:8px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:18px; width:18px;"> ZENZA FID</a>
+    <div class="navlinks">
+      <a href="fid-welcome.html">About</a>
+      <a href="#roles">Open Roles</a>
+      <a href="#structure">Team & Structure</a>
+      <a href="#comp">How We Pay</a>
+      <a href="fid-investors.html">Investors</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="https://app.zenzatech.com" style="padding:8px 14px; font-size:12.5px;">Log In</a>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+      <a class="nav-cta" href="#interest">Show Interest</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-content">
+    <div class="stamp">We're Building the Founding Team</div>
+    <h1>Come build the fraud-intelligence layer African banks don't have <em>yet.</em></h1>
+    <p class="sub">Zenza FID is pre-seed, early, and honest about it. We're looking for engineers, an early commercial lead, interns and advisors who want real ownership of something that matters.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#roles">See Open Roles ↓</a>
+      <a class="btn btn-ghost" href="#structure">How the Team Works</a>
+    </div>
+    <div class="hero-foot">
+      <div class="stat"><span class="num mono">Pre-Seed</span><span class="lab">Stage</span></div>
+      <div class="stat"><span class="num mono">~6–10</span><span class="lab">Founding team size</span></div>
+      <div class="stat"><span class="num mono">Remote-first</span><span class="lab">Nigeria-anchored</span></div>
+      <div class="stat"><span class="num mono">Equity + Stipend</span><span class="lab">Early-stage comp</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="eyebrow">Open Roles</div>
+    <div class="sec-head">
+      <h2>What we need to get from concept to MVP.</h2>
+      <p>These map directly to our build plan — nothing here is speculative. Don't see an exact fit? Apply anyway.</p>
+    </div>
+
+    <div class="role-group">
+      <h3>Core Engineering</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>CTO / Head of Engineering</h4><p>Own the architecture end-to-end and help hire the rest of the team.</p></div><div class="row-meta"><span class="tag c-teal">Founding</span><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>Backend Engineers (x2)</h4><p>Core services, API layer, integration adapters for core banking systems.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>Frontend Engineer</h4><p>Web console and analyst UI — the tool investigators use every day.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>DevSecOps Engineer</h4><p>CI/CD, infrastructure, security hardening toward ISO 27001 readiness.</p></div><div class="row-meta"><span class="tag c-teal">Full-time</span></div></div>
+        <div class="row-item"><div><h4>Data / AI-ML Engineer</h4><p>Identity resolution now, explainable risk-scoring models later.</p></div><div class="row-meta"><span class="tag c-teal">Month 2–3</span></div></div>
+        <div class="row-item"><div><h4>QA Engineer</h4><p>Test automation and release quality, working with our first pilot bank.</p></div><div class="row-meta"><span class="tag c-teal">Part-time OK</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Product & Commercial</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Product Manager / Business Analyst</h4><p>Own requirements, backlog, and the relationship with our pilot-bank stakeholders.</p></div><div class="row-meta"><span class="tag c-amber">Founding</span></div></div>
+        <div class="row-item"><div><h4>Commercial / Sales Lead</h4><p>Bank and FI sales strategy, pilot negotiations — our first hire outside engineering.</p></div><div class="row-meta"><span class="tag c-amber">Month 3–4</span></div></div>
+        <div class="row-item"><div><h4>Compliance & Regulatory Lead</h4><p>NDPA/GDPR posture, CBN engagement, and ownership of our ISO 27001 program.</p></div><div class="row-meta"><span class="tag c-amber">Month 3–4</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Interns</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Engineering Intern</h4><p>Work alongside the core team on real, shipped features — not busywork.</p></div><div class="row-meta"><span class="tag c-slate">Intern</span></div></div>
+        <div class="row-item"><div><h4>Product / Business Analyst Intern</h4><p>Support requirements-gathering, documentation and pilot-bank research.</p></div><div class="row-meta"><span class="tag c-slate">Intern</span></div></div>
+        <div class="row-item"><div><h4>Compliance & Legal Intern</h4><p>Help track NDPA/CBN developments and support data-processing agreement drafts.</p></div><div class="row-meta"><span class="tag c-slate">Intern</span></div></div>
+      </div>
+    </div>
+
+    <div class="role-group">
+      <h3>Advisors (Equity / Honorary)</h3>
+      <div class="row-index">
+        <div class="row-item"><div><h4>Fraud Domain Expert</h4><p>Ideally a former bank Head of Fraud/Risk — shapes our rules, workflows and credibility with buyers.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+        <div class="row-item"><div><h4>ISO 27001 Lead Implementer</h4><p>Guides our ISMS design ahead of formal certification.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+        <div class="row-item"><div><h4>Nigerian Fintech Regulatory Counsel</h4><p>Advises on CBN, NDPA and cross-institution data questions as they come up.</p></div><div class="row-meta"><span class="tag c-red">Advisor</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="structure">
+  <div class="wrap">
+    <div class="eyebrow">Team & Structure</div>
+    <div class="sec-head">
+      <h2>How the company is organized, and how you'd fit in.</h2>
+      <p>Small and flat right now, on purpose. Here's the actual reporting structure and how a new hire moves through the process.</p>
+    </div>
+
+    <div class="org-tier">
+      <div class="ot-label">Founding Layer</div>
+      <div class="org-row">
+        <div class="org-box"><h5>Founder / CEO</h5><span>Vision, funding, final call</span></div>
+      </div>
+    </div>
+
+    <div class="org-tier">
+      <div class="ot-label">Reports to Founder / CEO</div>
+      <div class="org-row">
+        <div class="org-box"><h5>CTO / Head of Engineering</h5><span>Owns the build</span></div>
+        <div class="org-box"><h5>Product Manager</h5><span>Owns the roadmap</span></div>
+        <div class="org-box"><h5>Commercial Lead</h5><span>Owns pilots & sales</span></div>
+        <div class="org-box"><h5>Compliance Lead</h5><span>Owns regulatory posture</span></div>
+      </div>
+    </div>
+
+    <div class="org-tier">
+      <div class="ot-label">Reports to CTO</div>
+      <div class="org-row">
+        <div class="org-box"><h5>Backend Engineers</h5><span>Core services & APIs</span></div>
+        <div class="org-box"><h5>Frontend Engineer</h5><span>Analyst console</span></div>
+        <div class="org-box"><h5>DevSecOps Engineer</h5><span>Infra & security</span></div>
+        <div class="org-box"><h5>Data/AI-ML Engineer</h5><span>Identity & scoring</span></div>
+        <div class="org-box"><h5>QA Engineer</h5><span>Release quality</span></div>
+      </div>
+    </div>
+
+    <div class="org-tier">
+      <div class="ot-label">Interns & Advisors — Embedded Across Teams</div>
+      <div class="org-row">
+        <div class="org-box"><h5>Interns</h5><span>Paired with a team lead, not siloed</span></div>
+        <div class="org-box"><h5>Advisors</h5><span>Direct line to Founder/CTO as needed, no fixed hours</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;">
+      <div class="eyebrow" style="margin-bottom:20px;">How Hiring Works</div>
+      <div class="timeline">
+        <div class="tl-line"></div>
+        <div class="tl-item active"><div class="tl-dot"></div><div class="tl-tag">Step 1</div><h4>You reach out</h4><p>Fill in the form below or email us directly — tell us what you're interested in.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Step 2</div><h4>A real conversation</h4><p>30–45 minutes with the founder or the relevant team lead — no trick questions, just getting to know each other.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Step 3</div><h4>A small paid trial</h4><p>A short, real piece of work relevant to the role, compensated even if it doesn't lead to an offer.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-tag">Step 4</div><h4>Offer & onboarding</h4><p>Equity and terms discussed openly, then you're straight into real work — not a long onboarding maze.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comp">
+  <div class="wrap">
+    <div class="eyebrow">How We Pay</div>
+    <div class="callout honest-box">
+      <h3>We're a small, pre-seed company. We can't pay handsomely yet — and we'd rather tell you that now than have you find out later.</h3>
+      <p>What we can offer is real ownership: meaningful equity, a founding-team seat at the table, and hands-on experience that's hard to get once a company is 200 people. Cash compensation today is modest — closer to a stipend than a market-rate salary for most roles — and will move toward market rate as we close funding and land paying pilot institutions.</p>
+      <p>If you need full market-rate pay right now, we'll likely not be a fit yet, and that's completely fine. If you're drawn to building something from zero with a small, accountable team, this is exactly the stage for that.</p>
+      <div class="honest-grid">
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Cash</span><p>Modest monthly stipend for full-time roles, reviewed as funding lands. Interns: stipend where budget allows.</p></div>
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Equity</span><p>Meaningful founding-team equity for early full-time hires, formalized once the company is incorporated.</p></div>
+        <div class="card"><span class="k" style="color:var(--teal-ink);">Growth</span><p>Direct mentorship, real ownership of shipped work, and a reference built on outcomes an investor can see.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About the Product</div>
+    <div class="sec-head">
+      <h2>What you'd actually be building.</h2>
+      <p>A view-only summary — enough to understand the mission and scope. The full documents are shared later in the conversation.</p>
+    </div>
+    <div class="viewer-shell">
+      <div class="viewer-topbar">
+        <span class="vt-label">Zenza FID — BRD & Product Summary</span>
+        <span class="vt-badge">View Only · Not Downloadable</span>
+      </div>
+      <div class="viewer-body" id="viewerBody">
+        <span class="vtag">Vision</span>
+        <h4>The trusted fraud-intelligence layer for African financial institutions</h4>
+        <p>Zenza FID centralizes fraud intelligence — watchlists, bad-actor identifiers, entity relationships, case management and analytics — into a single governed layer that sits alongside a bank's existing transaction-monitoring engine, rather than replacing it.</p>
+
+        <span class="vtag">The Problem</span>
+        <h4>Knowledge that should protect an institution instead sits in spreadsheets</h4>
+        <p>When a bad actor is caught in one department, branch or bank, that knowledge rarely reaches every other place they could strike again. Existing fraud engines score transactions well; they were never built to be a governed system of record for who the bad actors are and how they're connected.</p>
+
+        <span class="vtag">What You'd Be Building</span>
+        <ul>
+          <li><strong>Fraud Intelligence Repository</strong> — governed, searchable store of bad-actor profiles and identifiers</li>
+          <li><strong>Watchlist Management</strong> — maker-checker-approved flagging with real-time sync</li>
+          <li><strong>Rule Trigger Engine</strong> — configurable detection rules across transactions and entities</li>
+          <li><strong>Relationship / Link Analytics</strong> — graph-based views connecting entities and cases</li>
+          <li><strong>Case Management</strong> — SLA-driven investigation workflow with escalation</li>
+          <li><strong>Containment & Compliance Controls</strong> — time-boxed, auditable restrictions bounded by a hard 72-hour/court-order limit</li>
+          <li><strong>Cross-Bank Hashed Intelligence Network</strong> — privacy-preserving matching across institutions using cryptographic hashes, never raw customer data</li>
+          <li><strong>API Integration Layer</strong> — connectors for Finacle, Flexcube, Temenos, BANKS/ICSFS and NIBSS/BVN services</li>
+        </ul>
+
+        <span class="vtag">Indicative Stack</span>
+        <p>Node.js / Java microservices on Kubernetes, React frontend, PostgreSQL + a graph database (e.g. Neo4j) for relationship analytics, Kafka for real-time event streaming, Python for the ML risk-scoring pipeline, HSM/KMS-backed encryption throughout.</p>
+
+        <span class="vtag">Where We Are</span>
+        <p>Pre-seed, pre-MVP. Phase 1 (0–5 months) is the Starter tier: repository, watchlists, RBAC and audit trail, integrated with one pilot bank. That's the build the first engineering hires join.</p>
+
+        <span class="vtag">What We Won't Compromise On</span>
+        <p>Security and compliance are not an afterthought. ISO 27001-aligned controls from day one, maker-checker on every high-risk action, and a strict boundary around autonomous account actions.</p>
+      </div>
+      <div class="viewer-fade"></div>
+      <div class="viewer-footer">
+        <span class="vf-note">Selection, copying, right-click and printing are disabled on this summary.</span>
+        <span class="vf-note">Full BRD & Product Paper shared later in process.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interest">
+  <div class="wrap">
+    <div class="eyebrow">Show Interest</div>
+    <div class="form-wrap">
+      <div>
+        <h2 style="font-size:clamp(22px,3vw,30px); margin-bottom:16px;">Tell us who you are and where you'd fit.</h2>
+        <p style="color:var(--text-dim); font-size:15px; margin-bottom:20px;">No formal application process yet — just tell us about yourself. We read every message personally.</p>
+        <p style="color:var(--text-dim); font-size:13.5px;">Prefer email? Reach us at <a href="mailto:careers@zenzafid.com" style="color:var(--teal-ink); text-decoration:none;">careers@zenzafid.com</a></p>
+      </div>
+      <form id="interestForm">
+        <div class="field"><label for="name">Name</label><input type="text" id="name" required placeholder="Your full name"></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" required placeholder="you@email.com"></div>
+        <div class="field">
+          <label for="role">Role you're interested in</label>
+          <select id="role">
+            <option>CTO / Head of Engineering</option>
+            <option>Backend Engineer</option>
+            <option>Frontend Engineer</option>
+            <option>DevSecOps Engineer</option>
+            <option>Data / AI-ML Engineer</option>
+            <option>QA Engineer</option>
+            <option>Product Manager / Business Analyst</option>
+            <option>Commercial / Sales Lead</option>
+            <option>Compliance & Regulatory Lead</option>
+            <option>Engineering Intern</option>
+            <option>Product/BA Intern</option>
+            <option>Compliance & Legal Intern</option>
+            <option>Advisor</option>
+            <option>Something else / not listed</option>
+          </select>
+        </div>
+        <div class="field"><label for="link">Portfolio / LinkedIn / CV link (optional)</label><input type="text" id="link" placeholder="https://..."></div>
+        <div class="field"><label for="message">Why this, why now?</label><textarea id="message" required placeholder="Tell us a bit about yourself..."></textarea></div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Send My Interest</button>
+          <span class="form-msg" id="formMsg">Opening your email client…</span>
+        </div>
+        <p class="form-note">This opens your email app pre-filled to careers@zenzafid.com — we also save a copy here so nothing gets lost.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand" style="font-size:14px; gap:7px;"><img src="assets/zenzatech-icon-transparent-teal.svg" alt="" style="height:15px; width:15px;"> ZENZA FID</a>
+    <div class="flinks">
+      <a href="index.html">Home</a>
+      <a href="fid-welcome.html">About</a>
+      <a href="fid-investors.html">Investors</a>
+      <a href="https://zenzainc.com">Zenza Inc.</a>
+      <a href="mailto:careers@zenzafid.com">Careers Email</a>
+    </div>
+    <div class="fnote">© 2026 ZENZA TECHNOLOGY — a Zenza Inc. company · Zenza FID is a Zenza Technology product</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  const viewer = document.getElementById('viewerBody');
+  viewer.addEventListener('contextmenu', e => e.preventDefault());
+  viewer.addEventListener('copy', e => e.preventDefault());
+  viewer.addEventListener('cut', e => e.preventDefault());
+  viewer.addEventListener('dragstart', e => e.preventDefault());
+  document.addEventListener('keydown', (e) => {
+    const k = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && ['p','s'].includes(k)) e.preventDefault();
+    if ((e.ctrlKey || e.metaKey) && k === 'c' && window.getSelection().toString() &&
+        viewer.contains(window.getSelection().anchorNode)) e.preventDefault();
+  });
+
+  function saveEntry(payload){
+    return fetch('/api/submissions', {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    }).catch(err => console.warn('Could not save to local database (is the server running? see README.md)', err));
+  }
+
+  document.getElementById('interestForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const role = document.getElementById('role').value;
+    const link = document.getElementById('link').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    saveEntry({ page: 'fid-careers', formType: 'career_interest', name, email, role, link, message });
+
+    const subject = encodeURIComponent(`Zenza FID — Interest: ${role} — ${name}`);
+    const bodyLines = [`Name: ${name}`, `Email: ${email}`, `Role of interest: ${role}`, link ? `Link: ${link}` : null, '', message].filter(Boolean);
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = `mailto:careers@zenzafid.com?subject=${subject}&body=${body}`;
+
+    const msg = document.getElementById('formMsg');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 4000);
+  });
+</script>
+</body>
+</html>

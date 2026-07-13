@@ -1,0 +1,16 @@
+{
+  "name": "zenza-fid-app",
+  "version": "0.1.0",
+  "description": "Zenza FID — Fraud Intelligence platform (Phase 1 MVP: Repository, Watchlist, RBAC, Audit Trail)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.2.1"
+  }
+}
