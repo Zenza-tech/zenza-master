@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220">
+  
+
+  <!-- mark: circle bisected by an extending horizontal line -->
+  <line x1="27.9" y1="110.0" x2="152.1" y2="110.0" stroke="#FFFFFF" stroke-width="3.4"/>
+  <circle cx="90" cy="110.0" r="46" fill="none" stroke="#FFFFFF" stroke-width="3.4"/>
+
+  <!-- wordmark -->
+  <text x="170" y="106.0" font-family="Michroma" font-size="34" letter-spacing="2" fill="#FFFFFF">ZENZATECH</text>
+
+  <!-- tagline / mission -->
+  <text x="170" y="140.0" font-family="IBM Plex Mono" font-size="12.5" letter-spacing="3" fill="#8B96A8">INNOVATE TO SOLVE PROBLEMS</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect x="0" y="0" width="1200" height="800" fill="#0A1420"/>
+<line x1="161.2" y1="677.9" x2="274.5" y2="756.2" stroke="#E0A930" stroke-opacity="0.04" stroke-width="1"/>
+<line x1="916.5" y1="204.1" x2="1002.9" y2="346.2" stroke="#16B8A6" stroke-opacity="0.03" stroke-width="1"/>
+<line x1="916.5" y1="204.1" x2="914.7" y2="1.7" stroke="#16B8A6" stroke-opacity="0.01" stroke-width="1"/>
+<line x1="594.5" y1="359.6" x2="534.5" y2="577.2" stroke="#16B8A6" stroke-opacity="0.00" stroke-width="1"/>
+<line x1="914.7" y1="1.7" x2="1081.7" y2="24.5" stroke="#16B8A6" stroke-opacity="0.02" stroke-width="1"/>
+<circle cx="161.2" cy="677.9" r="4.5" fill="#E0A930" fill-opacity="0.85"/>
+<circle cx="916.5" cy="204.1" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="594.5" cy="359.6" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="781.9" cy="631.0" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="112.6" cy="22.7" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="1002.9" cy="346.2" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="914.7" cy="1.7" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="534.5" cy="577.2" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="274.5" cy="756.2" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<circle cx="1081.7" cy="24.5" r="2.6" fill="#2DD4C4" fill-opacity="0.55"/>
+<g id="guide-center" opacity="0.6">
+  <line x1="600.0" y1="0" x2="600.0" y2="800" stroke="#FF3399" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="0" y1="400.0" x2="1200" y2="400.0" stroke="#FF3399" stroke-width="1" stroke-dasharray="4,6"/>
+</g>
+<g id="guide-safezone" opacity="0.9">
+  <rect x="200" y="240" width="800" height="320" fill="none" stroke="#FF3399" stroke-width="2" stroke-dasharray="10,8"/>
+  <text x="210" y="264" font-family="monospace" font-size="14" fill="#FF3399">CLEAR SPACE — keep other elements out of this zone</text>
+</g>
+<rect x="380" y="320" width="160" height="160" fill="none" stroke="#FF3399" stroke-width="2" stroke-dasharray="6,6"/>
+<text x="460" y="410" font-family="monospace" font-size="16" fill="#FF3399" text-anchor="middle">MARK</text>
+<text x="460" y="430" font-family="monospace" font-size="12" fill="#FF3399" text-anchor="middle">160×160 build grid</text>
+<text x="580" y="410" font-family="Space Grotesk, sans-serif" font-size="42" font-weight="700" fill="#F3F5F7">ZENZA FID</text>
+<text x="580" y="438" font-family="monospace" font-size="13" fill="#8B96A8">wordmark sits here, Space Grotesk 700</text>
+<text x="1184" y="784" font-family="monospace" font-size="12" fill="#8B96A8" text-anchor="end">LOGO LOCKUP CANVAS · 1200×800 · delete #guide- groups before export</text>
+</svg>

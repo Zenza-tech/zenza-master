@@ -1,0 +1,14 @@
+{
+  "name": "zenza-tech-site",
+  "version": "1.0.0",
+  "description": "Zenza Technology website — company portfolio hub plus dedicated page tracks for each product (Zenza FID and ZenVest), with a local file-based database for form submissions.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

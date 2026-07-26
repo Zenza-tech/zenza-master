@@ -1,0 +1,11 @@
+node_modules/
+data/platform.db
+data/platform.db-shm
+data/platform.db-wal
+data/.network-pepper
+data/tenants/*
+!data/tenants/.gitkeep
+.env
+.env.local
+*.log
+.DS_Store

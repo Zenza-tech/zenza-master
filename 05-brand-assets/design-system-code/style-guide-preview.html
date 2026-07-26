@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zenza — Living Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+  .sg-wrap{ max-width:1000px; margin:0 auto; padding:100px 32px 120px; }
+  .sg-head{ margin-bottom:60px; }
+  .sg-head h1{ font-size:38px; margin-bottom:10px; }
+  .sg-head p{ color:var(--text-dim); font-size:15px; max-width:600px; }
+  .sg-block{ margin-bottom:64px; }
+  .sg-block h2{ font-size:14px; font-family:'IBM Plex Mono'; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-ink); margin-bottom:22px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  .swatch-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .swatch{ background:var(--bg); padding:0; }
+  .swatch .fill{ height:80px; }
+  .swatch .info{ padding:12px 14px; }
+  .swatch .name{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--heading); display:block; }
+  .swatch .hex{ font-family:'IBM Plex Mono'; font-size:11px; color:var(--text-dim); }
+  .type-row{ padding:18px 0; border-top:1px solid var(--line); display:flex; align-items:baseline; gap:24px; flex-wrap:wrap; }
+  .type-row:first-child{ border-top:none; }
+  .type-row .label{ font-family:'IBM Plex Mono'; font-size:11px; color:var(--text-dim); width:180px; flex-shrink:0; }
+  .comp-row{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding:20px 0; border-top:1px solid var(--line); }
+  .comp-row:first-child{ border-top:none; }
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap">
+    <a href="#" class="brand"><span class="dot"></span>ZENZA — STYLE GUIDE</a>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <button data-brand-mode="default" class="active">Zenza Tech</button>
+        <button data-brand-mode="zenvest">ZenVest</button>
+      </div>
+      <div class="theme-toggle">
+        <button data-mode="light">Light</button>
+        <button data-mode="dark">Dark</button>
+        <button data-mode="system">Auto</button>
+      </div>
+    </div>
+  </div>
+</nav>
+<p style="text-align:center; font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--text-dim); margin-top:76px; padding:0 20px;">Toggle "ZenVest" above to see the same components in ZenVest's gold/emerald brand variant — same CSS, one attribute swap.</p>
+<div class="sg-wrap">
+  <div class="sg-head">
+    <h1>Living Style Guide</h1>
+    <p>This page renders the actual design tokens from <code class="mono">theme.css</code> — not a mockup. If it changes here, it changes on the live site, and vice versa. Use the Light/Dark/Auto toggle above to check both modes.</p>
+  </div>
+
+  <div class="sg-block">
+    <h2>Color — Brand Accents</h2>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="fill" style="background:var(--teal);"></div><div class="info"><span class="name">Teal (primary)</span><span class="hex">--teal</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--amber);"></div><div class="info"><span class="name">Amber (secondary)</span><span class="hex">--amber</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--red);"></div><div class="info"><span class="name">Red (alert/enterprise)</span><span class="hex">--red</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--slate);"></div><div class="info"><span class="name">Slate (neutral)</span><span class="hex">--slate</span></div></div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Color — Surfaces & Text</h2>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="fill" style="background:var(--bg); border-bottom:1px solid var(--line);"></div><div class="info"><span class="name">Background</span><span class="hex">--bg</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--panel);"></div><div class="info"><span class="name">Panel</span><span class="hex">--panel</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--heading);"></div><div class="info"><span class="name">Heading text</span><span class="hex">--heading</span></div></div>
+      <div class="swatch"><div class="fill" style="background:var(--text-dim);"></div><div class="info"><span class="name">Dim text</span><span class="hex">--text-dim</span></div></div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Typography</h2>
+    <div class="type-row"><span class="label">Display / H1</span><span style="font-family:'Space Grotesk'; font-weight:700; font-size:40px;">Fraud that remembers</span></div>
+    <div class="type-row"><span class="label">Display / H2</span><span style="font-family:'Space Grotesk'; font-weight:600; font-size:28px;">One governed intelligence layer</span></div>
+    <div class="type-row"><span class="label">Body</span><span style="font-family:'IBM Plex Sans'; font-size:16px; max-width:480px;">The information that could stop repeat fraud already exists — it's just stuck in a spreadsheet nobody else can search.</span></div>
+    <div class="type-row"><span class="label">Utility / Mono</span><span class="mono" style="font-size:13px;">MOD.01 · FRAUD_INTELLIGENCE_REPOSITORY</span></div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Buttons</h2>
+    <div class="comp-row">
+      <a class="btn btn-primary" href="#">Primary Button</a>
+      <a class="btn btn-ghost" href="#">Ghost Button</a>
+      <span class="nav-cta" style="text-decoration:none;">Nav CTA</span>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Tags</h2>
+    <div class="comp-row">
+      <span class="tag c-teal">Starter</span>
+      <span class="tag c-amber">Growth</span>
+      <span class="tag c-red">Enterprise</span>
+      <span class="tag c-slate">Intern</span>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Cards</h2>
+    <div class="card-grid three">
+      <div class="card"><span class="k">Label</span><h4>Card Title</h4><p>Supporting description text sits here, matching the site's body copy style.</p></div>
+      <div class="card"><span class="k">Label</span><h4>Card Title</h4><p>Supporting description text sits here, matching the site's body copy style.</p></div>
+      <div class="card"><span class="k">Label</span><h4>Card Title</h4><p>Supporting description text sits here, matching the site's body copy style.</p></div>
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h2>Row / List Item</h2>
+    <div class="row-index">
+      <div class="row-item"><div><h4>Row title</h4><p>Row description text, same pattern used for modules and roles across the site.</p></div><div class="row-meta"><span class="tag c-teal">Tag</span></div></div>
+      <div class="row-item"><div><h4>Second row</h4><p>Hover this row to see the interaction state.</p></div><div class="row-meta"><span class="tag c-amber">Tag</span></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="site.js"></script>
+<script>
+  document.querySelectorAll('[data-brand-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-brand-mode]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (btn.dataset.brandMode === 'zenvest') {
+        document.documentElement.setAttribute('data-brand', 'zenvest');
+      } else {
+        document.documentElement.removeAttribute('data-brand');
+      }
+    });
+  });
+</script>
+</body>
+</html>
